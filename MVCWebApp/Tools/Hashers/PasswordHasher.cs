@@ -1,14 +1,14 @@
 ﻿using System.Security.Cryptography;
 
-namespace MVCWebApp.Tools;
+namespace MVCWebApp.Tools.Hashers;
 
-public class PasswordHasher
+public class PasswordHasher : IHasher
 {
     private const int SaltSize = 16;
     private const int HashSize = 20;
     private const int Iterations = 10_000;
 
-    public static string HashString(string password)
+    public string HashString(string password)
     {
         // Generate a random salt
         byte[] salt;
@@ -35,7 +35,7 @@ public class PasswordHasher
         }
     }
 
-    public static bool VerifyString(string savedHash, string passwordToCheck)
+    public bool VerifyString(string savedHash, string passwordToCheck)
     {
         // Convert the string back to bytes
         byte[] hashBytes = Convert.FromBase64String(savedHash);

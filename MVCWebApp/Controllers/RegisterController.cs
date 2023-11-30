@@ -10,14 +10,16 @@ public class RegisterController : Controller
 {
     private readonly ILogger<RegisterController> _logger;
     private readonly IMongoCollection<User> _userCollection;
+    private readonly IConfiguration _configuration;
     private readonly IHasher _hasher;
 
     public RegisterController(ILogger<RegisterController> logger, IMongoCollection<User> userCollection,
-        IHasher hasher)
+        IConfiguration configuration)
     {
         _logger = logger;
         _userCollection = userCollection;
-        _hasher = hasher;
+        _configuration = configuration;
+        _hasher = new PasswordHasher(_configuration);
     }
 
     [HttpGet]

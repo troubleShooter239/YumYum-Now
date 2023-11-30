@@ -25,7 +25,7 @@ public class RegisterViewModel
 
     [Required(ErrorMessage = "PhoneNumber is required")]
     [Phone(ErrorMessage = "Wrong PhoneNumber")]
-    public required string PhoneNumber { get; set; }
+    public required byte PhoneNumber { get; set; }
 
     public required byte[] ProfilePicture { get; set; }
 }

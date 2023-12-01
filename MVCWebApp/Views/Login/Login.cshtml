@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "LogIn";
+}
+<link rel="stylesheet" href="~/css/LoginStyle.css" asp-append-version="true" />
+<div class="background-panel"></div>
+<img src="~/Image/Burger.svg" alt="Burger Image" class="background-image">
+<div class="form-container-space"></div>
+<div class="form-container">
+    <div class="form-group">
+         <label class="label-text" for="email">Phone number or email:</label>
+         <input type="text" id="email" name="email" required minlength="10" maxlength="30" class="custom-input">
+    </div>
+    <div class="form-group">
+        <label class="label-text" for="password" id="password-label">Password:</label>
+        <div class="password-input-container">
+            <input type="password" id="password" name="password" required minlength="8" maxlength="16" class="custom-input">
+            <span id="password-error" class="error-message"></span>
+        </div>
+    </div>
+    <!-- Размещаем кнопку под полями ввода -->
+    <div class="custom-button" onclick="validatePassword()">Sign in</div>
+    <li class="nav-item">
+           <a class="registration-text" asp-area="" asp-controller="Registration" asp-action="Registration">Don't have an account? Register</a>
+    </li> 
+</div>
+
+<script src="~/js/LoginFunction.js"></script>

@@ -20,3 +20,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+.form-control {
+  color: #FFA300; /* Цвет текста внутри поля ввода */
+  border-color: #666; /* Цвет рамки поля ввода */
+}

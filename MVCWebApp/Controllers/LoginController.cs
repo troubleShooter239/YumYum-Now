@@ -56,6 +56,7 @@ public class LoginController : Controller
 
         if (user.PasswordHash != _hasher.HashString(model.Password))
         {
+            ModelState.AddModelError(string.Empty, "Invalid password");
             _logger.LogInformation($"{user.Id}: Invalid password");
             return View(model);
         }

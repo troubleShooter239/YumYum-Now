@@ -31,12 +31,13 @@ public class RegisterController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
-        if (!ModelState.IsValid)
+        if (!ModelState.IsValid) 
         {
             return View(model);
         }
-
+        
         // Check if the user has already registered
+        // TODO: add phone number to validation
         var existingUser = await (await _userCollection.FindAsync(u => 
             u.Email == model.Email)).FirstOrDefaultAsync();
         if (existingUser != null)

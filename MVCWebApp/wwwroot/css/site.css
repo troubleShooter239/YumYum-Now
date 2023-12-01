@@ -20,3 +20,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.do-color {
+  color: rgb(153, 30, 210);
+}

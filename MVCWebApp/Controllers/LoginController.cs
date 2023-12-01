@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using MVCWebApp.Models;
 using MVCWebApp.Models.User;
+using MVCWebApp.Tools.Encrypters;
 using MVCWebApp.Tools.Hashers;
 
-namespace MVCWebApp;
+namespace MVCWebApp.Controllers;
 
 public class LoginController : Controller
 {
@@ -15,6 +16,7 @@ public class LoginController : Controller
     private readonly IMongoCollection<User> _userCollection;
     private readonly IConfiguration _configuration;
     private readonly IHasher _hasher;
+    private readonly IEncrypter _encrypter;
 
     public LoginController(ILogger<LoginController> logger, IMongoCollection<User> userCollection,
         IConfiguration configuration)
@@ -23,6 +25,7 @@ public class LoginController : Controller
         _userCollection = userCollection;
         _configuration = configuration;
         _hasher = new PasswordHasher(_configuration);
+        _encrypter = new AesEncrypter(_configuration);
     }
 
     [HttpGet]
@@ -36,21 +39,30 @@ public class LoginController : Controller
             return View(model);
         }
 
+        var encryptedEmail = _encrypter.EncryptString(model.Email);
+        var encryptedPhoneNumber = _encrypter.EncryptString(model.PhoneNumber);
+
         // Check if user already logged in
-        var user = _userCollection.Find(u => 
-            u.Email == model.Email && 
-            u.PasswordHash == _hasher.HashString(model.Password)
-        ).FirstOrDefault();
+        var user = await (await _userCollection.FindAsync(u => 
+            u.Email == encryptedEmail || u.PhoneNumber == encryptedPhoneNumber
+        )).FirstOrDefaultAsync();
 
         if (user == null)
         {
             ModelState.AddModelError(string.Empty, "Invalid login attempt");
+            _logger.LogInformation("Invalid login attempt");
+            return View(model);
+        }
+
+        if (user.PasswordHash != _hasher.HashString(model.Password))
+        {
+            _logger.LogInformation($"{user.Id}: Invalid password");
             return View(model);
         }
         
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, user.Email),
+            new Claim(ClaimTypes.Email, user.Email),
             // Add another claims
         };
 

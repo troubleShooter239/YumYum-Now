@@ -2,9 +2,10 @@
 using MongoDB.Driver;
 using MVCWebApp.Models;
 using MVCWebApp.Models.User;
+using MVCWebApp.Tools.Encrypters;
 using MVCWebApp.Tools.Hashers;
 
-namespace MVCWebApp;
+namespace MVCWebApp.Controllers;
 
 public class RegisterController : Controller
 {
@@ -12,6 +13,7 @@ public class RegisterController : Controller
     private readonly IMongoCollection<User> _userCollection;
     private readonly IConfiguration _configuration;
     private readonly IHasher _hasher;
+    private readonly IEncrypter _encrypter;
 
     public RegisterController(ILogger<RegisterController> logger, IMongoCollection<User> userCollection,
         IConfiguration configuration)
@@ -20,6 +22,7 @@ public class RegisterController : Controller
         _userCollection = userCollection;
         _configuration = configuration;
         _hasher = new PasswordHasher(_configuration);
+        _encrypter = new AesEncrypter(_configuration);
     }
 
     [HttpGet]
@@ -47,10 +50,10 @@ public class RegisterController : Controller
         {
             FirstName = model.FirstName,
             LastName = model.LastName,
-            Email = model.Email,
+            Email = _encrypter.EncryptString(model.Email),
             PasswordHash = _hasher.HashString(model.Password),
-            DeliveryAddress = model.DeliveryAddress,
-            PhoneNumber = model.PhoneNumber,
+            DeliveryAddress = _encrypter.EncryptString(model.DeliveryAddress),
+            PhoneNumber = _encrypter.EncryptString(model.PhoneNumber),
             ProfilePicture = model.ProfilePicture
         };
 
@@ -67,7 +70,7 @@ public class RegisterController : Controller
         }
 
         // Log successful registration
-        _logger.LogInformation($"User registered: {model.Email}");
+        _logger.LogInformation($"User registered: {newUser.Id}");
 
         // Redirect to login page
         return RedirectToAction("Login");        

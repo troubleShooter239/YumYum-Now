@@ -4,9 +4,11 @@ namespace MVCWebApp.Models;
 
 public class LoginViewModel
 {
-    [Required(ErrorMessage = "Email is required")]
-    [EmailAddress(ErrorMessage = "Wrong Email address")]
-    public required string Email { get; set; }
+    [EmailAddress]
+    public string? Email { get; set; }
+
+    [Phone]
+    public string? PhoneNumber { get; set; }
 
     [Required(ErrorMessage = "Password is required")]
     [DataType(DataType.Password)]

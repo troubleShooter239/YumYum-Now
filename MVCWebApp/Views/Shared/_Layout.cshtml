@@ -1,35 +1,106 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MVCWebApp</title>
+    <title>@ViewData["Title"] - YumYum Now</title>
+    <link rel="icon" href="Images/Burger.svg" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MVCWebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVCWebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <img src="Images/Burger.svg" width="35" border=”0”>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">YumYum</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon my-button"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="Discounts">Discounts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="News">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="Reviews">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="About Us">AboutUs</a>
+                        <li class="nav-itemm">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Map">Map</a>
                         </li>
                     </ul>
                 </div>
             </div>
+            <div>
         </nav>
     </header>
+    <form id="form1" runat="server">
+        <div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img class="first-slide" src="Images/shaverma.jpg" alt="First slide" width="100%">
+                    </div>
+
+
+                    <div class="item">
+                        <img class="second-slide" src="Images/Slider2.svg" alt="Second slide" width="100%">
+                    </div>
+
+
+                    <div class="item">
+                        <img class="third-slide" src="Images/Slider3.svg" alt="Third slide" width="100%">
+                    </div>
+
+                </div>
+            </div><!-- /.carousel -->
+        </div>
+    </form>
+    </div>
+    <div class="wrapper">
+        <div class="containerr">
+            <div class="button-containerr">
+                <button>Shawarma</button>
+                <button>Kebab</button>
+                <button>Taco</button>
+                <button>Burritos</button>
+                <button>Burgers</button>
+                <button>Dessert</button>
+                <button>Drinks</button>
+            </div>
+        </div>
+    </div>
+    <p style="font-family: Zen Maru Gothic, sans-serif;font-size: 18px;">Shawarma</p>
+    <hr style="border-top: 10px solid black;"> <!-- Черная линия --> </hr>
+    
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -45,5 +116,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

@@ -3998,6 +3998,10 @@ textarea.form-control-lg {
   list-style: none;
 }
 .navbar-nav .nav-link {
+  font-family: 'Zen Maru Gothic', sans-serif; /* Используйте нужный вам шрифт или его альтернативу */
+  /* Другие стили вашего текста */
+  color: #000; /* Например, черный цвет текста */
+  /* Другие свойства, если нужно */
   padding-right: 0;
   padding-left: 0;
 }
@@ -4017,13 +4021,14 @@ textarea.form-control-lg {
 }
 
 .navbar-toggler {
-  padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  transition: box-shadow 0.15s ease-in-out;
+  background-color: #101820; /* Цвет фона кнопки */
+  color: black; /* Цвет текста */
+  font-family: "Zen Maru Gothic", sans-serif; /* Установка шрифта */
+  font-size: 0.1px; /* Размер шрифта */
+  border: none; /* Убрать рамку кнопки */
+  padding: 10px 20px; /* Отступы внутри кнопки */
+  border-radius: 5px; /* Закругление углов */
+  cursor: pointer; /* Курсор при наведении */
 }
 @media (prefers-reduced-motion: reduce) {
   .navbar-toggler {
@@ -4046,7 +4051,7 @@ textarea.form-control-lg {
   vertical-align: middle;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100%;
+  background-size: 300%;
 }
 
 .navbar-nav-scroll {
@@ -5928,8 +5933,9 @@ textarea.form-control-lg {
 }
 
 .carousel-inner {
+  max-width: 100%; /* Максимальная ширина изображения равная ширине родительского контейнера */
+  height: auto;
   position: relative;
-  width: 100%;
   overflow: hidden;
 }
 .carousel-inner::after {
@@ -5942,7 +5948,8 @@ textarea.form-control-lg {
   position: relative;
   display: none;
   float: left;
-  width: 100%;
+  max-width: 100%; /* Максимальная ширина изображения равная ширине родительского контейнера */
+  height: auto;
   margin-right: -100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;

@@ -7,17 +7,51 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.container-fluid {
+  background-color: #FFA300; 
+}
 a {
   color: #0077cc;
 }
-
+.containerr {
+  display: inline-block; /* Сделать контейнер внутриинлайновым */
+  border-radius: 1000px;
+  background-color: #FFA300;
+  margin: 0; 
+  margin-top: -850px;
+  padding: 0; 
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Чтобы контент был по центру по вертикали */
+}
+.button-containerr {
+  display: inline-block; /* Сделать контейнер с кнопками внутриинлайновым */
+    margin: 0; /* Убрать внешние отступы */
+    padding: 20px; /* Добавить отступы внутри контейнера с кнопками */
+    border-radius: 50px;
+}
+button {
+  margin: 0 3px; /* Расстояние между кнопками */
+  background-color: #FFA300; 
+  border: none; /* Убираем обводку */
+  font-family: 'Zen Maru Gothic', sans-serif; /* Установка шрифта */
+  font-size: 24px; /* Установка размера шрифта */
+}
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+.custom-font {
+  font-family: "Times New Roman", sans-serif !important;
+}
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  font-family: 'Zen Maru Gothic', sans-serif; /* Установка шрифта */
+  font-size: 24px; /* Установка размера шрифта */
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;

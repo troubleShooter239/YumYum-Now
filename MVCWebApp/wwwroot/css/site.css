@@ -1,3 +1,31 @@
+.slider {
+  width: 900px;
+  overflow: visible;
+  position: relative;
+}
+
+.slide {
+
+  position: absolute;
+  width: 1920px;
+  height: 400px;
+  overflow: hidden;
+  transition: opacity 0.5s;
+}
+
+.slide.active {
+  
+    opacity: 1;
+  
+}
+
+.slide.inactive {
+  opacity: 0;
+}
+button 
+{
+  margin-top: 10px;
+}
 html {
   font-size: 14px;
 }

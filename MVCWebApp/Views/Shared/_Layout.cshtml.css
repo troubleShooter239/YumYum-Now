@@ -6,7 +6,20 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
+.image-wrapper {
+  flex-basis: calc(33.33% - 10px); /* Расчет ширины каждого элемента с учетом промежутков */
+  margin-bottom: 10px; /* Промежутки между рядами */
+}
+
+.image-wrapper img {
+  width: 100%; /* Заполнение всего доступного пространства внутри обертки */
+}
 .container-fluid {
   background-color: #FFA300; 
 }

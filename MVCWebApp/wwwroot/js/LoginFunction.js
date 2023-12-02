@@ -46,7 +46,6 @@ function validateEmail() {
     }
   }
   
-  
 
 function validateData() {
   validateEmail();

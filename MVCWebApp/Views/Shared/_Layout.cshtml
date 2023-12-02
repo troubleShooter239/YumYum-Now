@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header>
+    @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVCWebApp</a>
@@ -29,7 +29,9 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> *@
+    <a class="nav-link text-dark" asp-area="" asp-controller="Login"
+                                asp-action="Login">Login</a>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

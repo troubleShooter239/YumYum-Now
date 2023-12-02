@@ -1,3 +1,36 @@
 @{
-    ViewData["Title"] = "Registration";
+    ViewData["Title"] = "LogIn";
 }
+<link rel="stylesheet" href="~/css/LoginStyle.css" asp-append-version="true" />
+
+<div class="form-container-space"></div>
+<div class="form-container">
+    <div class="background-panel">
+        <img src="~/Image/Burger.svg" alt="Burger Image" class="background-image">
+        <label class="company-text" for="logoName">YumYum Now</label> <!-- Moved YumYum Now label here -->
+        <div class="login-container">
+            <label class="label-text" for="email" id="email-label">Phone number or email:</label>
+            <input type="text" id="email" name="email" required minlength="10" maxlength="30" class="custom-input">
+            <span id="email-error" class="error-message"></span>
+
+
+            <div class="form-group">
+                <label class="label-text" for="password" id="password-label">Password:</label>
+                <div class="password-input-container">
+                    <input type="password" id="password" name="password" required minlength="8" maxlength="16"
+                        class="custom-input">
+                    <span id="password-error" class="error-message"></span>
+                </div>
+            </div>
+
+            <!-- Размещаем кнопку под полями ввода -->
+            <div class="custom-button" onclick="validateData()">
+                Sign in
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/js/LoginFunction.js"></script>

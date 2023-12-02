@@ -14,14 +14,14 @@
             <span id="email-error" class="error-message"></span>
 
 
-            <div class="form-group">
-                <label class="label-text" for="password" id="password-label">Password:</label>
-                <div class="password-input-container">
-                    <input type="password" id="password" name="password" required minlength="8" maxlength="16"
-                        class="custom-input">
-                    <span id="password-error" class="error-message"></span>
-                </div>
+
+            <label class="label-text" for="password" id="password-label">Password:</label>
+            <div class="password-input-container">
+                <input type="password" id="password" name="password" required minlength="8" maxlength="16"
+                    class="custom-input">
+                <span id="password-error" class="error-message"></span>
             </div>
+
 
             <!-- Размещаем кнопку под полями ввода -->
             <div class="custom-button" onclick="validateData()">
@@ -33,4 +33,4 @@
 </div>
 
 
-<script src="~/js/LoginFunction.js"></script>
+<script src="~/js/LoginFunction.js?v=@DateTime.Now.Ticks"></script>

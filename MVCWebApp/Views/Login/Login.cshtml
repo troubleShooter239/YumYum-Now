@@ -2,38 +2,31 @@
     ViewData["Title"] = "LogIn";
 }
 <link rel="stylesheet" href="~/css/LoginStyle.css" asp-append-version="true" />
+<div class="background-panel">
+    <img src="~/Image/Burger.svg" alt="Burger Image" class="background-image">
+    <label class="company-text" for="logoName">YumYum Now</label> <!-- Moved YumYum Now label here -->
+    <div class="login-container">
+        <label class="label-text" for="email">Phone number or email:</label>
+        <input type="text" id="email" name="email" required minlength="10" maxlength="30" class="custom-input">
+        <span id="email-error" class="error-message"></span>
 
-<div class="form-container-space"></div>
-<div class="form-container">
-    <div class="background-panel">
-        <img src="~/Image/Burger.svg" alt="Burger Image" class="background-image">
-        <label class="company-text" for="logoName">YumYum Now</label> <!-- Moved YumYum Now label here -->
-        <div class="login-container">
-            <label class="label-text" for="email">Phone number or email:</label>
-            <input type="text" id="email" name="email" required minlength="10" maxlength="30" class="custom-input">
-            <span id="email-error" class="error-message"></span>
-
-            <div class="form-group">
-                <label class="label-text" for="password" id="password-label">Password:</label>
-                <div class="password-input-container">
-                    <input type="password" id="password" name="password" required minlength="8" maxlength="16"
-                        class="custom-input">
-                    <span id="password-error" class="error-message"></span>
-                </div>
+        <div class="form-group">
+            <label class="label-text" for="password" id="password-label">Password:</label>
+            <div class="password-input-container">
+                <input type="password" id="password" name="password" required minlength="8" maxlength="16"
+                    class="custom-input">
+                <span id="password-error" class="error-message"></span>
             </div>
+        </div>
 
-            <!-- Размещаем кнопку под полями ввода -->
-            <div class="custom-button">
-                Sign in
-            </div>
+        <!-- Размещаем кнопку под полями ввода -->
+        <div class="custom-button">SignIn</div>
 
-            <div>
-                <a class="registration-text" asp-area="" asp-controller="Registration" asp-action="Registration">Don't
-                    have an account? Register</a>
-            </div>
+        <div>
+            <a class="registration-text" asp-area="" asp-controller="Registration" asp-action="Registration">Don't
+                have an account? Register</a>
         </div>
     </div>
 </div>
-
 
 <script src="~/js/LoginFunction.js"></script>

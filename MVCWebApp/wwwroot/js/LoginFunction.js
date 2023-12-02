@@ -48,6 +48,7 @@ function validateEmail() {
   
   
 
-// function validateDatas() {
-//   validateEmail();
-// }
+function validateData() {
+  validateEmail();
+  validatePassword();
+}

@@ -11,27 +11,32 @@
         <div class="form-group">
             <label class="label-text" for="email">Phone number or email:</label>
             <div class="email-input-container">
-                <input type="text" id="email" name="email" required minlength="10" maxlength="30" 
-                    class="custom-input">
+                <input type="text" id="email" name="email" required minlength="10" maxlength="30" class="custom-input">
                 <span id="email-error" class="error-message"></span>
             </div>
         </div>
 
         <div class="form-group">
             <label class="label-text" for="password" id="password-label">Password:</label>
+
             <div class="password-input-container">
                 <input type="password" id="password" name="password" required minlength="8" maxlength="16"
                     class="custom-input">
                 <span id="password-error" class="error-message"></span>
             </div>
         </div>
-
         <!-- Размещаем кнопку под полями ввода -->
-        <button class="custom-button">SignIn</button>
+        <button class="custom-button">Sign in</button>
 
         <div>
-            <a class="registration-text" asp-area="" asp-controller="Registration" asp-action="Registration">Don't
-                have an account? Register</a>
+            <a class="registration-text" asp-area="" asp-controller="Registration" asp-action="Registration">
+                Don't have an account? Register
+            </a>
+        </div>
+        <div>
+            <a class="registration-text" asp-area="" asp-controller="ForgotPassword" asp-action="ForgotPassword">
+                Forgot password?
+            </a>
         </div>
     </div>
 </div>

@@ -54,3 +54,102 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.image-wrapper {
+  flex-basis: calc(33.33% - 10px); /* Расчет ширины каждого элемента с учетом промежутков */
+  margin-bottom: 10px; /* Промежутки между рядами */
+}
+
+.image-wrapper img {
+  width: 100%; /* Заполнение всего доступного пространства внутри обертки */
+}
+.container-fluid {
+  background-color: #FFA300; 
+}
+.container-fluidd {
+  background-color: #ffffff; 
+}
+
+a {
+  color: #0077cc;
+}
+.containerr {
+  display: inline-block; /* Сделать контейнер внутриинлайновым */
+  border-radius: 1000px;
+  background-color: #FFA300;
+  margin: 0; 
+  margin-top: -85vh;
+  padding: 0; 
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Чтобы контент был по центру по вертикали */
+}
+.button-containerr {
+  display: inline-block; /* Сделать контейнер с кнопками внутриинлайновым */
+    margin: 0; /* Убрать внешние отступы */
+    padding: 20px; /* Добавить отступы внутри контейнера с кнопками */
+    border-radius: 50px;
+}
+button {
+  margin: 0 3px; /* Расстояние между кнопками */
+  background-color: #FFA300; 
+  border: none; /* Убираем обводку */
+  font-family: 'Zen Maru Gothic', sans-serif; /* Установка шрифта */
+  font-size: 24px; /* Установка размера шрифта */
+}
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+.custom-font {
+  font-family: "Times New Roman", sans-serif !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  font-family: 'Zen Maru Gothic', sans-serif; /* Установка шрифта */
+  font-size: 24px; /* Установка размера шрифта */
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

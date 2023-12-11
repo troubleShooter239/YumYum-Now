@@ -23,6 +23,10 @@ a.navbar-brand {
 .container-fluid {
   background-color: #FFA300; 
 }
+.container-fluidd {
+  background-color: #ffffff; 
+}
+
 a {
   color: #0077cc;
 }

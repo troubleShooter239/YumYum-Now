@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemon&family=Zen+Maru+Gothic:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Zen+Maru+Gothic:wght@300;400&display=swap');
 
 /* temporary styles for (temporary) login button */
 .nav-link {
@@ -13,9 +14,13 @@
   height: 100%;
   display: flex; /* to positioning internal content */
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
-
+.container2{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
 .background-panel {
   width: 450px;
   height: 500px;
@@ -41,6 +46,7 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: "Lemon", serif;
   font-size: 25px;
+  color: #101820;
 }
 
 .login-container {
@@ -60,11 +66,9 @@
   border-radius: 25px;
   width: 360px;
   font-size: 16px;
-  font-family: "Zen Maru Gothic", serif;
   background-color: #ffa300;
-  transition: 0.2s;
+  font-family: 'Zen Maru Gothic', serif;
 }
-
 .custom-button:hover {
   background-color: #101820;
   border: 1px solid white;
@@ -73,14 +77,14 @@
 }
 
 .error-message {
-  font-size: 10px;
-  position: relative;
-  display: block;
-  margin-top: -0.5vh;
-  margin-left: 4vw;
+  font-size: 16px;
 }
 
-.label-text { font-size: 18px; }
+.label-text { 
+  font-size: 16px;
+  margin-left: 1vw;
+  font-family: 'Open Sans', sans-serif;
+}
 
 .registration-text {
   font-size: 16px;
@@ -94,9 +98,8 @@
   width: 360px;
   border: 0.5px solid #101820;
   background-color: #ffa300;
-  border-radius: 25px;
+  border-radius: 10px;
   border-color: #101820;
-  transition: 0.5s;
 }
 
 .custom-input:focus {
@@ -110,8 +113,18 @@
 .forgot-password-text {
   font-size: 16px;
   color: #48539c;
+  font-family: 'Open Sans', sans-serif;
 }
-
+.validate-panel {
+  width: 360px;
+  height: 100px;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  background-color: #6d6868c5;
+}
 /* 
   Adaptive for devices with max-width 500px 
   rewrite properties
@@ -122,6 +135,11 @@
     height: 400px;
     border-radius: 40px;
   }
+  .validate-panel
+  {
+    width: 200px;
+    height: 50px;
+  }
 
   .background-image { height: 80px; }
 
@@ -129,10 +147,19 @@
 
   .company-text { font-size: 20px; }
 
-  .label-text { font-size: 14px; }
+  .label-text { font-size: 12px; margin-left: 1vw;}
 
-  .custom-button { font-size: 14px; width: 200px; }
+  .custom-button { font-size: 12px; width: 200px; }
 
   .registration-text { font-size: 12px; }
   .forgot-password-text { font-size: 12px; }
+  .error-message {font-size: 9px;}
+}
+@media (max-width: 768px)
+{
+
+}
+@media (max-width: 1300px)
+{
+
 }

@@ -1,7 +1,7 @@
 @{
-    ViewData["Title"] = "LogIn";
+    ViewData["Title"] = "Sign in to YumYum Now";
 }
-<link rel="stylesheet" href="~/css/LoginStyle.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Authentication.css" asp-append-version="true" />
 <div class="background-panel">
     <div class="logo">
         <img src="~/Image/Burger.svg" alt="Burger Image" class="background-image">
@@ -12,7 +12,9 @@
             <label class="label-text" for="email">Phone number or email:</label>
             <div class="email-input-container">
                 <input type="text" id="email" name="email" required minlength="10" maxlength="30" class="custom-input">
-                <span id="email-error" class="error-message"></span>
+                <div class="error-message">
+                    <span id="email-error"></span>
+                </div>
             </div>
         </div>
 
@@ -34,11 +36,11 @@
             </a>
         </div>
         <div>
-            <a class="registration-text" asp-area="" asp-controller="ForgotPassword" asp-action="ForgotPassword">
+            <a class="registration-text" href="/password_reset">
                 Forgot password?
             </a>
         </div>
     </div>
 </div>
 
-<script src="~/js/LoginFunction.js"></script>
+<script src="~/js/Authentication.js"></script>

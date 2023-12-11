@@ -13,6 +13,7 @@ public class ForgotPasswordController : Controller
         _logger = logger;
     }
 
+[Route("/password_reset")]
     public IActionResult ForgotPassword()
     {
         return View();

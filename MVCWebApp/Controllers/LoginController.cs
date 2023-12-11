@@ -14,7 +14,7 @@ public class LoginController : Controller
         _logger = logger;
     }
 
-    
+    [Route("/login")]
     public IActionResult Login()
     {
         return View();

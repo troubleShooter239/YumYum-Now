@@ -1,0 +1,63 @@
+﻿@page
+@model MyApp.Namespace.NewsModel
+@{
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новость</title>
+    <style>
+        /* Стили для примера - можно заменить на ваши */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .news {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .news h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .news p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .news img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="news">
+            <h2>Заголовок новости</h2>
+            <p>Дата: <strong>Дата новости</strong></p>
+            <img src="https://sun9-13.userapi.com/c4434/u72660598/-6/w_7aff99d4.jpg" alt="Изображение новости">
+            <p>Текст новости. Здесь вы можете описать событие, добавить информацию или любую другую содержательную часть новости.</p>
+            <p>Можно добавить еще параграфов или информации в зависимости от вашего контента.</p>
+        </div>
+
+        <!-- Добавьте еще блоки для других новостей -->
+        <div class="news">
+            <h2>Еще одна новость</h2>
+            <!-- ... -->
+        </div>
+    </div>
+</body>
+</html>

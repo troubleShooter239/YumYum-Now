@@ -15,7 +15,19 @@
   <style>
     /* Ваши стили */
     h1 {
+      font-family: Zothic, sans-serif;
+      font-size: 24px;
       text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      /* 100% высоты экрана */
+      margin-top: -200px;
     }
 
     .star-rating i {
@@ -43,7 +55,7 @@
               <tr>
                 <td><img src='http://zornet.ru/_fr/83/7890600.jpg' alt='' class='testimonial-image'></td>
                 <td style='vertical-align: top;'>
-                  <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 18pt;'>
+                  <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 24pt;'>
                     <div class='gecedanam'>Антон Попов</div>
                     <div class='apogered-gselected'>
                       <i class='fas fa-star'></i>
@@ -52,7 +64,7 @@
                       <i class='fas fa-star'></i>
                       <i class='fas fa-star'></i>
                     </div>
-                    <p style='font-family: Zothic, sans-serif; font-size: 18pt;'>Здесь первое описание. Продолжение.</p>
+                    <p style='font-family: Zothic, sans-serif; font-size: 24pt;'>Здесь первое описание. Продолжение.</p>
                   </div>
                 </td>
               </tr>
@@ -67,14 +79,14 @@
               <tr>
                 <td><img src='http://zornet.ru/_fr/83/7890600.jpg' alt='' class='testimonial-image'></td>
                 <td style='vertical-align: top;'>
-                  <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 18pt;'>
+                  <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 24pt;'>
                     <div class='gecedanam'>Мария Иванова</div>
                     <div class='apogered-gselected'>
                       <i class='fas fa-star'></i>
                       <i class='fas fa-star'></i>
                       <i class='fas fa-star'></i>
                     </div>
-                    <p style='font-family: Zothic, sans-serif; font-size: 18pt;'>Отличное место для быстрого перекуса!
+                    <p style='font-family: Zothic, sans-serif; font-size: 24pt;'>Отличное место для быстрого перекуса!
                     </p>
                   </div>
                 </td>
@@ -90,24 +102,30 @@
   </div>
 
   <!-- Форма для нового отзыва -->
-  <div class="vemotau-vokusipol">
-    <h2>Оставьте свой отзыв</h2>
-    <div class="star-rating">
-      <i class="fas fa-star" onclick="setRating(1)"></i>
-      <i class="fas fa-star" onclick="setRating(2)"></i>
-      <i class="fas fa-star" onclick="setRating(3)"></i>
-      <i class="fas fa-star" onclick="setRating(4)"></i>
-      <i class="fas fa-star" onclick="setRating(5)"></i>
+  <div class="container">
+    <!-- Ваша форма здесь -->
+    <div class="vemotau-vokusipol">
+      <h2>Оставьте свой отзыв</h2>
+      <div class="star-rating">
+        <div class="star-rating">
+          <i class="fas fa-star" onclick="setRating(1)"></i>
+          <i class="fas fa-star" onclick="setRating(2)"></i>
+          <i class="fas fa-star" onclick="setRating(3)"></i>
+          <i class="fas fa-star" onclick="setRating(4)"></i>
+          <i class="fas fa-star" onclick="setRating(5)"></i>
+        </div>
+      </div>
+      <form id="userReviewForm">
+        <label for="userReviewName">Имя:</label><br>
+        <input type="text" id="userReviewName" name="userReviewName"><br>
+
+        <label for="userReviewText">Отзыв:</label><br>
+        <textarea id="userReviewText" name="userReviewText" rows="4" cols="50"></textarea><br>
+
+        <input type="submit" value="Отправить">
+      </form>
     </div>
-    <form id="userReviewForm">
-      <label for="userReviewName">Имя:</label><br>
-      <input type="text" id="userReviewName" name="userReviewName"><br>
-
-      <label for="userReviewText">Отзыв:</label><br>
-      <textarea id="userReviewText" name="userReviewText" rows="4" cols="50"></textarea><br>
-
-      <input type="submit" value="Отправить">
-    </form>
+  </div>
   </div>
   </div>
   <script>

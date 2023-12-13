@@ -6,14 +6,89 @@
 
 <!DOCTYPE html>
 <html>
-
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <img src="/Images/Burger.svg" width="35" border=”0”>
+            <a class="navbar-brandd" asp-area="" asp-controller="Home" asp-action="Index">YumYum</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon my-button"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                            asp-action="Discounts">Discounts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="News">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                            asp-action="About Us">AboutUs</a>
+                    <li class="nav-itemm">
+                        <a class="nav-link text-dark" href="#" onclick="scrollToElement('map')">Map</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+    </nav>
+</header>
 <head>
   <title>Отзывы</title>
   <link rel="stylesheet"
     href="file:///C:/Users/User/Desktop/zalupa/MVC-Web-App/MVCWebApp/Views/Reviews/Reviews.cshtml.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <style>
-    /* Ваши стили */
+    .vemotau-vokusipol {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень контейнера */
+  }
+
+  /* Стили для изображения отзыва */
+  .testimonial-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Для круглой формы изображения */
+    margin-right: 10px;
+  }
+  /* Стили для информации об отзыве */
+  .info {
+    font-family: 'Zothic', sans-serif;
+    font-size: 18pt;
+  }
+
+  /* Стили для имени пользователя */
+  .gecedanam {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+.testimonial .apogered-gselected i {
+    font-size: 20px; /* Уменьшаем размер звезд в отзывах */
+  }
+  /* Стили для рейтинга */
+  .apogered-gselected {
+    color: gold;
+    margin-bottom: 5px;
+  }
+
+  /* Стили для текста отзыва */
+  .testimonial p {
+    font-family: 'Zothic', sans-serif;
+    font-size: 18pt;
+    margin-top: 5px;
+  }
     h1 {
       font-family: Zothic, sans-serif;
       font-size: 24px;
@@ -31,7 +106,7 @@
     }
 
     .star-rating i {
-      font-size: 24px;
+      font-size: 20px;
       cursor: pointer;
       transition: color 0.25s;
     }
@@ -154,12 +229,12 @@
                                         <div class='testimonial'>
                                             <table>
                                                 <tr>
-                                                    <td><img src='http://zornet.ru/_fr/83/7890600.jpg' alt='' class='testimonial-image'></td>
+                                                    <td><img src='https://cdn.discordapp.com/attachments/1176620866440798361/1184616841168048188/IMG_0011_Original.jpg?ex=658c9f68&is=657a2a68&hm=4a8927baaf93106e3e3a7171a597711e38aba566e1488333e7e747b1f6d87692&' alt='' class='testimonial-image'></td>
                                                     <td style='vertical-align: top;'>
-                                                        <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 18pt;'>
+                                                        <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 24pt;'>
                                                             <div class='gecedanam'>${userName}</div>
                                                             <div class='apogered-gselected'>${Array(rating).fill('<i class="fas fa-star"></i>').join('')}</div>
-                                                            <p style='font-family: Zothic, sans-serif; font-size: 18pt;'>${userReviewText}</p>
+                                                            <p style='font-family: Zothic, sans-serif; font-size: 24pt;'>${userReviewText}</p>
                                                         </div>
                                                     </td>
                                                 </tr>

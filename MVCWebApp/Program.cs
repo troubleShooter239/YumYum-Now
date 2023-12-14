@@ -1,5 +1,7 @@
 using System.Security.Claims;
 using MVCWebApp.Auth;
+using MVCWebApp.Tools.Interfaces;
+using MVCWebApp.Tools.VerificationContactInfo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,8 @@ builder.Services.AddAuthorization(options =>
         builder.RequireRole(ClaimTypes.Role, Roles.USER);
     });
 });
+
+builder.Services.AddTransient<IEmailVerification, EmailVerification>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -2,8 +2,7 @@
 using MongoDB.Driver;
 using MVCWebApp.Models;
 using MVCWebApp.Models.User;
-using MVCWebApp.Tools.Encrypters;
-using MVCWebApp.Tools.Hashers;
+using MVCWebApp.Tools.Interfaces;
 
 namespace MVCWebApp.Controllers;
 
@@ -25,10 +24,18 @@ public class RegisterController : Controller
         _encrypter = new AesEncrypter(_configuration);
     }
 
+    // Test endpoint to check if the controller is working
+    [HttpGet]
+    public IActionResult Test()
+    {
+        _logger.LogInformation("Test endpoint hit successfully.");
+        return Ok("Test endpoint hit successfully.");
+    }
+
     [HttpGet]
     public IActionResult Register() => View();
 
-    [HttpPost]
+    [HttpPost]  
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
         if (!ModelState.IsValid) 
@@ -74,6 +81,7 @@ public class RegisterController : Controller
         _logger.LogInformation($"User registered: {newUser.Id}");
 
         // Redirect to login page
-        return RedirectToAction("Login");        
+        // return RedirectToAction("Login");  
+        return Ok();      
     }
 }

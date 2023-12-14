@@ -1,4 +1,4 @@
-﻿namespace MVCWebApp.Tools.Hashers;
+﻿namespace MVCWebApp.Tools.Interfaces;
 
 // Provides methods for hashing and verifying strings.
 public interface IHasher

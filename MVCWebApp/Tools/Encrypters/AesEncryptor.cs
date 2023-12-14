@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace MVCWebApp.Tools.Encrypters;
+namespace MVCWebApp.Tools.Interfaces;
 
 // Implementation of the IEncrypter interface using AES encryption algorithm.
 public class AesEncrypter : IEncrypter

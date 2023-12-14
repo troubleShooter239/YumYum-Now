@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using MVCWebApp.Models;
 using MVCWebApp.Models.User;
-using MVCWebApp.Tools.Encrypters;
-using MVCWebApp.Tools.Hashers;
+using MVCWebApp.Tools.Interfaces;
 
 namespace MVCWebApp.Controllers;
 

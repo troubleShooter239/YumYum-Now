@@ -1,4 +1,4 @@
-﻿namespace MVCWebApp.Tools.Encrypters;
+﻿namespace MVCWebApp.Tools.Interfaces;
 
 // IEncrypter interface for data encryption and decryption.
 public interface IEncrypter

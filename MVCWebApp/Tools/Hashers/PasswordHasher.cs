@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace MVCWebApp.Tools.Hashers;
+namespace MVCWebApp.Tools.Interfaces;
 
 // Provides methods for hashing and verifying passwords using PBKDF2.
 public class PasswordHasher : IHasher

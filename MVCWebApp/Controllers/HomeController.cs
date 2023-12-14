@@ -1,20 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVCWebApp.Models;
+using MVCWebApp.Tools.Interfaces;
 
 namespace MVCWebApp.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly IEmailVerification _emailVerification;
+    public HomeController(ILogger<HomeController> logger, IEmailVerification emailVerification)
     {
         _logger = logger;
+        _emailVerification = emailVerification;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
+        // var receiver = "receiver@mail.com";
+        // var subject = "Mail title.";
+        // var message = "Mail text.";
+
+        // await _emailVerification.SendAsync(receiver, subject, message);
+
         return View();
     }
 
@@ -22,6 +30,8 @@ public class HomeController : Controller
     {
         return View();
     }
+
+    public IActionResult Reviews() => View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

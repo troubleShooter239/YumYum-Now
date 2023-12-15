@@ -1,11 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@300&display=swap');
 .slider {
   width: 2000px;
   height: 60vh; /* Увеличиваем высоту слайдера */
   overflow: visible;
   position: relative;
 }
-
+.food-name
+{
+  font-family: 'Lemon', serif; 
+  font-size: 50px; 
+  font-weight: bold; 
+  padding-left: 60px;
+  color: #101820;
+}
+.food-rectangle
+{
+  max-width: 100%; 
+  height: 20px;
+  border: none;
+  background-color: #101820;
+}
 .slide {
   position: absolute;
   width: 100%;
@@ -46,6 +61,15 @@ html {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
+.test-rectangle
+{
+  width: 2px;
+  height: 50px;
+  background: #101820;
+  display: inline-block;
+  margin: 0 10px;
+  flex: 1;
+}
 
 html {
   position: relative;
@@ -63,13 +87,48 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
+a.logo-text
+{
+  font-family: 'Lemon', serif;
+  font-size: 16px;
+  color: #101820;
+  margin-left: 10px;
+}
+.logo-text a:hover
+{
+  color: #101820;
+}
+
 .image-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 60px
+}
+.button-container {
+  position: absolute;
+  left: 50%; /* Позиционируем контейнер по центру горизонтально */
+  transform: translateX(-50%); /* Корректируем положение по горизонтали */
+  display: flex;
+  justify-content: space-around; /* Равномерное распределение кнопок по ширине контейнера */
+}
+
+.button-food {
+  width: 100px;
+  height: 50px;
+  background-color: #FFA300;
+  border-radius: 25px;
+  margin: 0 5px; /* Добавлен отступ между кнопками */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .image-wrapper {
+   position: relative;
+    display: flex;
+    flex-direction: column; /* Располагаем кнопки вертикально */
+    align-items: center; /* Центрируем контент по горизонтали */
   flex-basis: calc(33.33% - 10px); /* Расчет ширины каждого элемента с учетом промежутков */
   margin-bottom: 10px; /* Промежутки между рядами */
 }
@@ -78,7 +137,11 @@ a.navbar-brand {
   width: 100%; /* Заполнение всего доступного пространства внутри обертки */
 }
 .container-fluid {
-  background-color: #FFA300; 
+  background-color: #FFA300;
+  position: absolute;
+  position: fixed;
+  z-index: 100;
+  
 }
 .container-fluidd {
   background-color: #ffffff; 
@@ -92,20 +155,24 @@ a {
   border-radius: 1000px;
   background-color: #FFA300;
   margin: 0; 
-  margin-top: -85vh;
   padding: 0; 
 }
 .wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Чтобы контент был по центру по вертикали */
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; /* Чтобы контент был по центру по вертикали */
+    top: 100px;  
 }
 .button-containerr {
   display: inline-block; /* Сделать контейнер с кнопками внутриинлайновым */
     margin: 0; /* Убрать внешние отступы */
     padding: 20px; /* Добавить отступы внутри контейнера с кнопками */
     border-radius: 50px;
+    font-size: 25px; 
+    display: flex;
+    align-items: center;   
 }
 button {
   margin: 0 3px; /* Расстояние между кнопками */

@@ -35,15 +35,15 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <img src="Images/Burger.svg" width="35" border=”0”>
-            <a class="navbar-brandd" asp-area="" asp-controller="Home" asp-action="Index">YumYum</a>
+        <div class="container-fluid test-style">
+            <img src="Images/Burger.svg" width="60" border=”0”>
+            <a class="logo-text" asp-area="" asp-controller="Home" asp-action="Index">YumYum Now</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon my-button"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
-                <ul class="navbar-nav flex-grow-1">
+                <ul class="navbar-nav flex-grow-1" >
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
@@ -101,24 +101,33 @@
     <div class="containerr">
         <div class="button-containerr">
             <button onclick="scrollToElement('shawarmaText')">Shawarma</button>
+            <div class=test-rectangle></div>
             <button onclick="scrollToElement('kebabText')">Kebab</button>
+            <div class=test-rectangle></div>
             <button onclick="scrollToElement('tacoText')">Taco</button>
+            <div class=test-rectangle></div>
             <button onclick="scrollToElement('burritosText')">Burritos</button>
+            <div class=test-rectangle></div>
             <button onclick="scrollToElement('burgersText')">Burgers</button>
+            <div class=test-rectangle></div>
             <button onclick="scrollToElement('dessertText')">Dessert</button>
+            <div class=test-rectangle></div>
             <button onclick="scrollToElement('drinksText')">Drinks</button>
         </div>
     </div>
 </div>
-
-<p id="shawarmaText"
-    style="font-family: Zen Maru Gothic, sans-serif; font-size: 18px; font-weight: bold; padding-left: 20px;">
-    Shawarma</p>
-<hr style="max-width: 100%; height: 16px; border: none; background-color: rgb(10, 8, 8); border-radius: 8px;">
+<div>
+<p class = "food-name" id="shawarmaText">Shawarmas</p>
+<div class = food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
         <img src="Images/shaverma.jpg" alt="Image 1">
+        <div class="button-container">
+            <div class="button-food">300</div>
+            <div class="button-food">300</div>
+            <div class="button-food">300</div>
+        </div>
     </div>
     <div class="image-wrapper">
         <img src="Images/shaverma.jpg" alt="Image 2">
@@ -138,8 +147,8 @@
         <img src="Images/shaverma.jpg" alt="Image 6">
     </div>
 </div>
-<p id="kebabText" style="font-family: Zen Maru Gothic, sans-serif;font-size: 18px;">Kebab</p>
-<hr style="max-width: 100%; height: 16px; border: none; background-color: rgb(10, 8, 8); border-radius: 8px;">
+<p class="food-name" id="kebabText" ">Kebabs</p>
+<div class = food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -163,10 +172,8 @@
         <img src="Images/Kebab.jpg" alt="Image 6">
     </div>
 </div>
-<p id="tacoText"
-    style="font-family: Zen Maru Gothic, sans-serif; font-size: 18px; font-weight: bold; padding-left: 20px;">Taco
-</p>
-<hr style="max-width: 100%; height: 16px; border: none; background-color: rgb(10, 8, 8); border-radius: 8px;">
+<p class="food-name" id="tacoText">Tacos</p>
+<div class = food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -190,10 +197,8 @@
         <img src="Images/Taco.jpg" alt="Image 6">
     </div>
 </div>
-<p id="burritosText"
-    style="font-family: Zen Maru Gothic, sans-serif; font-size: 18px; font-weight: bold; padding-left: 20px;">
-    Burritos</p>
-<hr style="max-width: 100%; height: 16px; border: none; background-color: rgb(10, 8, 8); border-radius: 8px;">
+<p class="food-name" id="burritosText">Burritos</p>
+<div class = food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -217,10 +222,8 @@
         <img src="Images/Burito.jpg" alt="Image 6">
     </div>
 </div>
-<p id="burgersText"
-    style="font-family: Zen Maru Gothic, sans-serif; font-size: 18px; font-weight: bold; padding-left: 20px;">Burger
-</p>
-<hr style="max-width: 100%; height: 16px; border: none; background-color: rgb(10, 8, 8); border-radius: 8px;">
+<p class="food-name" id="burgersText">Burgers</p>
+<div class = food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -244,10 +247,8 @@
         <img src="Images/Burger.jpg" alt="Image 6">
     </div>
 </div>
-<p id="dessertText"
-    style="font-family: Zen Maru Gothic, sans-serif; font-size: 18px; font-weight: bold; padding-left: 20px;">
-    Dessert</p>
-<hr style="max-width: 100%; height: 16px; border: none; background-color: rgb(10, 8, 8); border-radius: 8px;">
+<p class="food-name" id="dessertText">Desserts</p>
+<div class = food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -271,10 +272,8 @@
         <img src="Images/Desert.jpg" alt="Image 6">
     </div>
 </div>
-<p id="drinksText"
-    style="font-family: Zen Maru Gothic, sans-serif; font-size: 18px; font-weight: bold; padding-left: 20px;">Drinks
-</p>
-<hr style="max-width: 100%; height: 16px; border: none; background-color: rgb(10, 8, 8); border-radius: 8px;">
+<p class="food-name" id="drinksText">Drinks</p>
+<div class = food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -298,7 +297,7 @@
         <img src="Images/Drink.jpg" alt="Image 6">
     </div>
 </div>
-
+</div>
 <div class="container-fluidd">
     <!-- Текст перед картой -->
     <div style="text-align: center; font-family: Zen Maru Gothic, sans-serif;">

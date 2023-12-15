@@ -42,7 +42,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Чтобы контент был по центру по вертикали */
+  height: 1vh; /* Чтобы контент был по центру по вертикали */
 }
 .button-containerr {
   display: inline-block; /* Сделать контейнер с кнопками внутриинлайновым */

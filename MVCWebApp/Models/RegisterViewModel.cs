@@ -1,31 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace MVCWebApp.Models;
 
 public class RegisterViewModel
 {
-    public int UserId { get; set; }
+    // [BsonId]
+    // [BsonRepresentation(BsonType.ObjectId)]
+    // public string Id { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "FirstName is required")]
-    public required string FirstName { get; set; }
+    public string FirstName { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "LastName is required")]
-    public required string LastName { get; set; }
+    public string LastName { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Email is required")]
-    [EmailAddress(ErrorMessage = "Wrong Email address")]
-    public required string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Password is required")]
-    [DataType(DataType.Password)]
-    public required string Password { get; set; }
+    public string Password { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "Delivery address is required")]
-    public required string DeliveryAddress { get; set; }
+    public string DeliveryAddress { get; set; } = string.Empty;
 
-    [Required(ErrorMessage = "PhoneNumber is required")]
-    [Phone(ErrorMessage = "Wrong PhoneNumber")]
-    public required string PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; } = string.Empty;
 
-    public required byte[] ProfilePicture { get; set; }
+    public byte[] ProfilePicture { get; set; } = [];
 }

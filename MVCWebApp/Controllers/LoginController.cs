@@ -69,16 +69,11 @@ public class LoginController : Controller
 
         var claimsIdentity = new ClaimsIdentity(
             claims, CookieAuthenticationDefaults.AuthenticationScheme);
-        var authProperties = new AuthenticationProperties
-        {
-            IsPersistent = model.RememberMe
-        };
 
         try
         {
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                                          new ClaimsPrincipal(claimsIdentity),
-                                          authProperties);
+                                          new ClaimsPrincipal(claimsIdentity));
         }
         catch(Exception ex)
         {

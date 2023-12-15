@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using MVCWebApp.Models;
 using MVCWebApp.Models.User;
+using MVCWebApp.Services;
 using MVCWebApp.Tools.Encrypters;
 using MVCWebApp.Tools.Hashers;
 
@@ -10,21 +11,21 @@ namespace MVCWebApp.Controllers;
 public class RegisterController : Controller
 {
     private readonly ILogger<RegisterController> _logger;
-    private readonly IMongoCollection<User> _userCollection;
     private readonly IConfiguration _configuration;
     private readonly IHasher _hasher;
     private readonly IEncrypter _encrypter;
+    private readonly IUserService _userService;
 
-    public RegisterController(ILogger<RegisterController> logger, IMongoCollection<User> userCollection,
-        IConfiguration configuration)
+    // TODO: for _hasher, _encrypter create singletons instead
+    public RegisterController(ILogger<RegisterController> logger, IConfiguration configuration, IUserService userService)
     {
         _logger = logger;
-        _userCollection = userCollection;
         _configuration = configuration;
         _hasher = new PasswordHasher(_configuration);
         _encrypter = new AesEncrypter(_configuration);
+        _userService = userService;
     }
-
+    
     [HttpGet]
     public IActionResult Register() => View();
 
@@ -33,21 +34,17 @@ public class RegisterController : Controller
     {
         if (!ModelState.IsValid) 
         {
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                _logger.LogError($"ModelState error: {error.ErrorMessage}");
+            }
+            _logger.LogInformation("Invalid");
             return View(model);
         }
         
-        // Check if the user has already registered
-        // TODO: add phone number to validation
-        var existingUser = await (await _userCollection.FindAsync(u => 
-            u.Email == model.Email)).FirstOrDefaultAsync();
-        if (existingUser != null)
-        {
-            ModelState.AddModelError("Email", "User with this email already exists");
-            return View(model);
-        }
+        _logger.LogInformation("Model valid");
 
-        // Creating new user
-        var newUser = new User
+        var user = new User
         {
             FirstName = model.FirstName,
             LastName = model.LastName,
@@ -58,20 +55,16 @@ public class RegisterController : Controller
             ProfilePicture = model.ProfilePicture
         };
 
-        try
+        if (user == null)
         {
-            // Saving user in database
-            await _userCollection.InsertOneAsync(newUser);
-        }
-        catch (Exception ex)
-        {
-            // Log exception
-            _logger.LogError(ex, "Error during user registration");
-            throw; // Re-throw the exception to ensure proper error handling
+            _logger.LogError("Error with creating user.");
+            return View(model);
         }
 
+        await _userService.Create(user);
+
         // Log successful registration
-        _logger.LogInformation($"User registered: {newUser.Id}");
+        _logger.LogInformation($"User registered: {user.Id}");
 
         // Redirect to login page
         return RedirectToAction("Login");        

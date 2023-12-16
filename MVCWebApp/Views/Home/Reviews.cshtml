@@ -1,227 +1,71 @@
-﻿@page
-@model MyApp.Namespace.ReviewsModel
-@{
+﻿<link rel="stylesheet" href="~/css/Reviews.css" asp-append-version="true" />
 
-}
-
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Отзывы</title>
-  <link rel="stylesheet"
-    href="file:///C:/Users/User/Desktop/zalupa/MVC-Web-App/MVCWebApp/Views/Reviews/Reviews.cshtml.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-  <style>
-    .vemotau-vokusipol {
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень контейнера */
-  }
-
-  /* Стили для изображения отзыва */
-  .testimonial-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* Для круглой формы изображения */
-    margin-right: 10px;
-  }
-  /* Стили для информации об отзыве */
-  .info {
-    font-family: 'Zothic', sans-serif;
-    font-size: 18pt;
-  }
-
-  /* Стили для имени пользователя */
-  .gecedanam {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-.testimonial .apogered-gselected i {
-    font-size: 20px; /* Уменьшаем размер звезд в отзывах */
-  }
-  /* Стили для рейтинга */
-  .apogered-gselected {
-    color: gold;
-    margin-bottom: 5px;
-  }
-
-  /* Стили для текста отзыва */
-  .testimonial p {
-    font-family: 'Zothic', sans-serif;
-    font-size: 18pt;
-    margin-top: 5px;
-  }
-    h1 {
-      font-family: Zothic, sans-serif;
-      font-size: 24px;
-      text-align: center;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      /* 100% высоты экрана */
-      margin-top: -200px;
-    }
-
-    .star-rating i {
-      font-size: 20px;
-      cursor: pointer;
-      transition: color 0.25s;
-    }
-
-    .star-rating i:hover,
-    .star-rating i.checked {
-      color: gold;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="koguvcavis-varazdel">
-    <div class="sestim-donials">
-      <h1>Отзывы </h1>
-      <div class="sagestim-lonials" id="reviews">
-        <!-- Отзыв 1 -->
-        <div class='vemotau-vokusipol'>
-          <div class='testimonial'>
-            <table>
-              <tr>
-                <td><img src='http://zornet.ru/_fr/83/7890600.jpg' alt='' class='testimonial-image'></td>
-                <td style='vertical-align: top;'>
-                  <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 24pt;'>
-                    <div class='gecedanam'>Антон Попов</div>
-                    <div class='apogered-gselected'>
-                      <i class='fas fa-star'></i>
-                      <i class='fas fa-star'></i>
-                      <i class='fas fa-star'></i>
-                      <i class='fas fa-star'></i>
-                      <i class='fas fa-star'></i>
-                    </div>
-                    <p style='font-family: Zothic, sans-serif; font-size: 24pt;'>Здесь первое описание. Продолжение.</p>
-                  </div>
-                </td>
-              </tr>
-            </table>
+<div class="koguvcavis-varazdel">
+  <div class="sestim-donials">
+    <h1>Отзывы</h1>
+    <div class="sectionesag"></div>
+    <div class="sagestim-lonials">
+      <div class="vemotau-vokusipol">
+        <div class="testimonial">
+          <img src="http://zornet.ru/_fr/83/7890600.jpg" alt="">
+          <div class="gecedanam">Антон Попов</div>
+          <div class="apogered-gselected">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
           </div>
-        </div>
 
-        <!-- Отзыв 2 -->
-        <div class='vemotau-vokusipol'>
-          <div class='testimonial'>
-            <table>
-              <tr>
-                <td><img src='http://zornet.ru/_fr/83/7890600.jpg' alt='' class='testimonial-image'></td>
-                <td style='vertical-align: top;'>
-                  <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 24pt;'>
-                    <div class='gecedanam'>Мария Иванова</div>
-                    <div class='apogered-gselected'>
-                      <i class='fas fa-star'></i>
-                      <i class='fas fa-star'></i>
-                      <i class='fas fa-star'></i>
-                    </div>
-                    <p style='font-family: Zothic, sans-serif; font-size: 24pt;'>Отличное место для быстрого перекуса!
-                    </p>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
+          <p>Здесь первое описание. Продолжение.</p>
         </div>
       </div>
-    </div>
-    <div class="sagestim-lonials" id="reviews">
-      <!-- Отзывы пользователей будут здесь -->
-    </div>
-  </div>
 
-  <!-- Форма для нового отзыва -->
-  <div class="container">
-    <!-- Ваша форма здесь -->
-    <div class="vemotau-vokusipol">
-      <h2>Оставьте свой отзыв</h2>
-      <div class="star-rating">
-        <div class="star-rating">
-          <i class="fas fa-star" onclick="setRating(1)"></i>
-          <i class="fas fa-star" onclick="setRating(2)"></i>
-          <i class="fas fa-star" onclick="setRating(3)"></i>
-          <i class="fas fa-star" onclick="setRating(4)"></i>
-          <i class="fas fa-star" onclick="setRating(5)"></i>
+      <div class="vemotau-vokusipol">
+        <div class="testimonial">
+          <img src="http://zornet.ru/_fr/83/2047084.jpg" alt="">
+          <div class="gecedanam">Дмитрий Атрохов</div>
+          <div class="apogered-gselected">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+
+          <p>Второй отзыв. Его продолжение.</p>
         </div>
       </div>
-      <form id="userReviewForm">
-        <label for="userReviewName">Имя:</label><br>
-        <input type="text" id="userReviewName" name="userReviewName"><br>
 
-        <label for="userReviewText">Отзыв:</label><br>
-        <textarea id="userReviewText" name="userReviewText" rows="4" cols="50"></textarea><br>
+      <div class="vemotau-vokusipol">
+        <div class="testimonial">
+          <img src="http://zornet.ru/_fr/83/5640570.jpg" alt="">
+          <div class="gecedanam">Каспер Волков</div>
+          <div class="apogered-gselected">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+      
+          <p>Третье описание. На отзыв.
+          </p>
+        </div>
+      </div>
+      <div class="vemotau-vokusipol">
+        <div class="testimonial">
+          <img src="http://zornet.ru/_fr/83/5640570.jpg" alt="">
+          <div class="gecedanam">Каспер Волков</div>
+          <div class="apogered-gselected">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
 
-        <input type="submit" value="Отправить">
-      </form>
+          <p>Третье описание. На отзыв.
+          </p>
+        </div>
     </div>
-  </div>
-  </div>
-  </div>
-  <script>
-    function setRating(stars) {
-      const starIcons = document.querySelectorAll('.star-rating i');
-      starIcons.forEach((icon, index) => {
-        if (index < stars) {
-          icon.classList.add('checked');
-        } else {
-          icon.classList.remove('checked');
-        }
-      });
-    }
-
-    document.getElementById("userReviewForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Предотвращаем отправку формы по умолчанию
-
-      const userName = document.getElementById("userReviewName").value;
-      const userReviewText = document.getElementById("userReviewText").value;
-
-      const rating = document.querySelectorAll('.star-rating i.checked').length;
-
-      // Создаем новый блок с отзывом и добавляем его на страницу
-      const newReview = document.createElement("div");
-      newReview.innerHTML = `<div class='vemotau-vokusipol'>
-                                        <div class='testimonial'>
-                                            <table>
-                                                <tr>
-                                                    <td><img src='https://cdn.discordapp.com/attachments/1176620866440798361/1184616841168048188/IMG_0011_Original.jpg?ex=658c9f68&is=657a2a68&hm=4a8927baaf93106e3e3a7171a597711e38aba566e1488333e7e747b1f6d87692&' alt='' class='testimonial-image'></td>
-                                                    <td style='vertical-align: top;'>
-                                                        <div class='info' style='vertical-align: top;font-family: Zothic, sans-serif; font-size: 24pt;'>
-                                                            <div class='gecedanam'>${userName}</div>
-                                                            <div class='apogered-gselected'>${Array(rating).fill('<i class="fas fa-star"></i>').join('')}</div>
-                                                            <p style='font-family: Zothic, sans-serif; font-size: 24pt;'>${userReviewText}</p>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>`;
-
-      // Вставляем новый отзыв после формы
-      const reviewsContainer = document.getElementById("reviews");
-      reviewsContainer.appendChild(newReview);
-
-      // Очищаем поля формы после отправки отзыва
-      document.getElementById("userReviewName").value = "";
-      document.getElementById("userReviewText").value = "";
-
-      // Сбрасываем выбор звезд
-      const starIcons = document.querySelectorAll('.star-rating i');
-      starIcons.forEach((icon) => {
-        icon.classList.remove('checked');
-      });
-    });
-  </script>
-</body>
-
-</html>

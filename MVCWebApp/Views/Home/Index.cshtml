@@ -2,6 +2,18 @@
 
     ViewData["Title"] = "Home Page";
 }
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.gram-button').on('click', function() {
+            // Remove the 'active' class from all buttons
+            $('.gram-button').removeClass('active');
+            
+            // Add the 'active' class to the clicked button
+            $(this).addClass('active');
+        });
+    });
+</script>
 
 <head>
     <style>
@@ -45,7 +57,7 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
 
-            <div class="carousel-inner" role="listbox" >
+            <div class="carousel-inner" role="listbox">
                 <div class="item active">
                     <img class="first-slide" src="Images/shaverma.jpg" alt="First slide">
                 </div>
@@ -82,40 +94,43 @@
     </div>
 </div>
 <div>
-<p class = "food-name" id="shawarmaText">Shawarmas</p>
-<div class = food-rectangle> </div>
+    <p class="food-name" id="shawarmaText">Shawarmas</p>
+    <div class=food-rectangle> </div>
 
-<div class="image-container">
-    <div class="image-wrapper">
-        <img src="Images/shaverma.jpg" alt="Image 1">
-        <div class="button-container">
-            <div class="button-food">300</div>
-            <div class="button-food">300</div>
-            <div class="button-food">300</div>
+    <div class="image-container">
+        <div class="image-wrapper">
+            <img src="Images/shaverma.jpg" alt="Image 1">
+            <div class="decription-container">
+                <p class="description-text">Какой-то текст с составом блюда: артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил артем дебил</p>
+            </div>
+            <div class="buttons-container">
+                <button class="gram-button" data-grams="300">300g</button>
+                <button class="gram-button" data-grams="400">400g</button>
+                <button class="gram-button" data-grams="500">500g</button>
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <img src="Images/shaverma.jpg" alt="Image 2">
+        </div>
+        <div class="image-wrapper">
+            <img src="Images/shaverma.jpg" alt="Image 3">
         </div>
     </div>
-    <div class="image-wrapper">
-        <img src="Images/shaverma.jpg" alt="Image 2">
+    <div class="image-container">
+        <div class="image-wrapper">
+            <img src="Images/shaverma.jpg" alt="Image 4">
+        </div>
+        <div class="image-wrapper">
+            <img src="Images/shaverma.jpg" alt="Image 5">
+        </div>
+        <div class="image-wrapper">
+            <img src="Images/shaverma.jpg" alt="Image 6">
+        </div>
     </div>
-    <div class="image-wrapper">
-        <img src="Images/shaverma.jpg" alt="Image 3">
-    </div>
-</div>
-<div class="image-container">
-    <div class="image-wrapper">
-        <img src="Images/shaverma.jpg" alt="Image 4">
-    </div>
-    <div class="image-wrapper">
-        <img src="Images/shaverma.jpg" alt="Image 5">
-    </div>
-    <div class="image-wrapper">
-        <img src="Images/shaverma.jpg" alt="Image 6">
-    </div>
-</div>
-<p class="food-name" id="kebabText" ">Kebabs</p>
+    <p class="food-name" id="kebabText" ">Kebabs</p>
 <div class = food-rectangle> </div>
 
-<div class="image-container">
+<div class=" image-container">
     <div class="image-wrapper">
         <img src="Images/Kebab.jpg" alt="Image 1">
     </div>
@@ -138,7 +153,7 @@
     </div>
 </div>
 <p class="food-name" id="tacoText">Tacos</p>
-<div class = food-rectangle> </div>
+<div class=food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -163,7 +178,7 @@
     </div>
 </div>
 <p class="food-name" id="burritosText">Burritos</p>
-<div class = food-rectangle> </div>
+<div class=food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -188,7 +203,7 @@
     </div>
 </div>
 <p class="food-name" id="burgersText">Burgers</p>
-<div class = food-rectangle> </div>
+<div class=food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -213,7 +228,7 @@
     </div>
 </div>
 <p class="food-name" id="dessertText">Desserts</p>
-<div class = food-rectangle> </div>
+<div class=food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -238,7 +253,7 @@
     </div>
 </div>
 <p class="food-name" id="drinksText">Drinks</p>
-<div class = food-rectangle> </div>
+<div class=food-rectangle> </div>
 
 <div class="image-container">
     <div class="image-wrapper">
@@ -351,7 +366,8 @@
                         <p><a href="mailto:info@domain.com" title="glorythemes">info@domain.com</a></p>
                         <<ul class="social-footer2">
                             <li class="">
-                                <a title="youtube" target="_blank" href="https://www.youtube.com/channel/UCzKxERjtwkUdnpsKG28l4pw">
+                                <a title="youtube" target="_blank"
+                                    href="https://www.youtube.com/channel/UCzKxERjtwkUdnpsKG28l4pw">
                                     <img alt="youtube" width="30" height="30" src="Images/Youtube.jpg">
                                 </a>
                             </li>

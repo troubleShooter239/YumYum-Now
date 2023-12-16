@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 using MVCWebApp.Models;
 using MVCWebApp.Models.User;
 using MVCWebApp.Services;
@@ -17,6 +16,7 @@ public class RegisterController : Controller
     private readonly IUserService _userService;
 
     // TODO: for _hasher, _encrypter create singletons instead
+    // ! FIXME: encrypter should encrypt text
     public RegisterController(ILogger<RegisterController> logger, IConfiguration configuration, IUserService userService)
     {
         _logger = logger;
@@ -30,28 +30,27 @@ public class RegisterController : Controller
     public IActionResult Register() => View();
 
     [HttpPost]
-    public async Task<IActionResult> Register(RegisterViewModel model)
+    public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
     {
         if (!ModelState.IsValid) 
         {
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                _logger.LogError($"ModelState error: {error.ErrorMessage}");
-            }
-            _logger.LogInformation("Invalid");
+            _logger.LogInformation("Invalid model.");
             return View(model);
         }
-        
-        _logger.LogInformation("Model valid");
+        if (await _userService.GetByEmail(model.Email) != null || await _userService.GetByPhone(model.PhoneNumber) != null)
+        {
+            _logger.LogInformation("User with this email and/or phone is already registered.");
+            return View(model);
+        }
 
         var user = new User
         {
             FirstName = model.FirstName,
             LastName = model.LastName,
-            Email = _encrypter.EncryptString(model.Email),
+            Email = model.Email,
             PasswordHash = _hasher.HashString(model.Password),
-            DeliveryAddress = _encrypter.EncryptString(model.DeliveryAddress),
-            PhoneNumber = _encrypter.EncryptString(model.PhoneNumber),
+            DeliveryAddress = model.DeliveryAddress,
+            PhoneNumber = model.PhoneNumber,
             ProfilePicture = model.ProfilePicture
         };
 

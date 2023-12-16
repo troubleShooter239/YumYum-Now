@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using MVCWebApp.Models;
 using MVCWebApp.Models.User;
+using MVCWebApp.Services;
 using MVCWebApp.Tools.Encrypters;
 using MVCWebApp.Tools.Hashers;
 
@@ -17,15 +18,17 @@ public class LoginController : Controller
     private readonly IConfiguration _configuration;
     private readonly IHasher _hasher;
     private readonly IEncrypter _encrypter;
+    private readonly IUserService _userService;
 
     public LoginController(ILogger<LoginController> logger, IMongoCollection<User> userCollection,
-        IConfiguration configuration)
+        IConfiguration configuration, IUserService userService)
     {
         _logger = logger;
         _userCollection = userCollection;
         _configuration = configuration;
         _hasher = new PasswordHasher(_configuration);
         _encrypter = new AesEncrypter(_configuration);
+        _userService = userService;
     }
 
     [HttpGet]
@@ -36,16 +39,18 @@ public class LoginController : Controller
     {
         if (!ModelState.IsValid)
         {
+            _logger.LogInformation("Invalid model.");
             return View(model);
         }
 
         var encryptedEmail = _encrypter.EncryptString(model.Email);
         var encryptedPhoneNumber = _encrypter.EncryptString(model.PhoneNumber);
 
-        // Check if user already logged in
-        var user = await (await _userCollection.FindAsync(u => 
-            u.Email == encryptedEmail || u.PhoneNumber == encryptedPhoneNumber
-        )).FirstOrDefaultAsync();
+        if (await _userService.GetByEmail(model.Email) != null || await _userService.GetByPhone(model.PhoneNumber) != null)
+        {
+            _logger.LogInformation("User with this email and/or phone is already registered.");
+            return View(model);
+        }
 
         if (user == null)
         {

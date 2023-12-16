@@ -6,7 +6,9 @@ public interface IUserService
 {
     Task<List<User>> GetAll();
     Task<User> Get(string id);
-    Task<User> Create(User user);
-    void Update(string id, User user);
-    void Remove(string id);
+    Task<User> GetByEmail(string email);
+    Task<User> GetByPhone(string phone);
+    Task Create(User user);
+    Task Update(string id, User user);
+    Task Remove(string id);
 }

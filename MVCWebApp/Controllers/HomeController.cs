@@ -22,6 +22,30 @@ public class HomeController : Controller
     {
         return View();
     }
+      public IActionResult News()
+    {
+        return View();
+    }
+       public IActionResult Discounts()
+    {
+      
+       return Redirect("https://habr.com/ru/flows/develop/articles/"); 
+    }
+        public IActionResult Reviews()
+    {
+        return View();
+    }
+        public IActionResult AboutUs()
+    {
+        return View();
+    }
+      public IActionResult Map()
+    {
+        return View();
+    }
+   
+
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

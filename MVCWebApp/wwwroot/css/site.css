@@ -74,8 +74,11 @@ html {
 	min-height: 100%;
 }
 
-body {
-	margin-bottom: 60px;
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #101820;
 }
 
 a.navbar-brand {
@@ -233,4 +236,12 @@ button.accept-policy {
 	.logo-text {
 		font-size: 10px;
 	}
+
+body {
+	margin-bottom: 60px;
+}
+
+.form-control {
+  color: #FFA300;
+  border-color: #666;
 }

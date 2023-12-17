@@ -59,8 +59,9 @@ button {
 }
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #FFA300;
+  border-color: #FFA300;
+  
 }
 .custom-font {
   font-family: "Times New Roman", sans-serif !important;
@@ -96,4 +97,9 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+}
+.xz-control {
+  color: #fff;
+  background-color: #FFA300; /* Цвет текста внутри поля ввода */
+  border-color: #666; /* Цвет рамки поля ввода */
 }

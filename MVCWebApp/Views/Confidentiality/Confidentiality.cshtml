@@ -1,5 +1,56 @@
+@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confidentiality</title>
+  <title>Profile</title>
+  <link rel="stylesheet" href="~/css/Confidentiality.css" asp-append-version="true" />
 </head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <div class="tabs">
+        <button id="profileButton" class="button-panel">Profile</button>
+        <button id="confidentialityButton" class="button-panel active">Confidentiality</button>
+        <button id="orderHistoryButton" class="button-panel">Order History</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="address-info">
+        <h2>Мои адреса</h2>
+        <p>Улица. Уручская, 21В</p>
+      </div>
+      <button class="open-button" onclick="openModal()">Изменить адрес</button>
+    </div>
+
+  </div>
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="right-panel">
+        <div class="search">
+          <input type="text" placeholder="Введите адрес">
+        </div>
+        <form class="address-form">
+          <input type="text" placeholder="Кв">
+          <input type="text" placeholder="Подъезд">
+          <input type="text" placeholder="Этаж">
+          <textarea placeholder="Комментарий курьеру"></textarea>
+          <div class="buttons">
+            <button class="cancel-button">Отменить</button>
+            <button class="save-button">Сохранить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="~/js/Profile.js"></script>
+  <script src="~/js/Confidentiality.js"></script>
+</body>
+
+</html>

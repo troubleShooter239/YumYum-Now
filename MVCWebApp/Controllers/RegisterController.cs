@@ -1,71 +1,79 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MVCWebApp.Models;
-using MVCWebApp.Models.User;
-using MVCWebApp.Services;
-using MVCWebApp.Tools.Encrypters;
-using MVCWebApp.Tools.Hashers;
+﻿// using Microsoft.AspNetCore.Mvc;
+// using MVCWebApp.Models;
+// using MVCWebApp.Models.User;
+// using MVCWebApp.Services.EncryptorService;
+// using MVCWebApp.Services.HasherService;
+// using MVCWebApp.Services.UserService;
 
-namespace MVCWebApp.Controllers;
+// namespace MVCWebApp.Controllers;
 
-public class RegisterController : Controller
-{
-    private readonly ILogger<RegisterController> _logger;
-    private readonly IConfiguration _configuration;
-    private readonly IHasher _hasher;
-    private readonly IEncrypter _encrypter;
-    private readonly IUserService _userService;
+// public class RegisterController : Controller
+// {
+//     private readonly ILogger<RegisterController> _logger;
+//     private readonly IPasswordHasher _hasher;
+//     private readonly IAesEncryptor _encryptor;
+//     private readonly IUserService _userService;
 
-    // TODO: for _hasher, _encrypter create singletons instead
-    // ! FIXME: encrypter should encrypt text
-    public RegisterController(ILogger<RegisterController> logger, IConfiguration configuration, IUserService userService)
-    {
-        _logger = logger;
-        _configuration = configuration;
-        _hasher = new PasswordHasher(_configuration);
-        _encrypter = new AesEncrypter(_configuration);
-        _userService = userService;
-    }
-    
-    [HttpGet]
-    public IActionResult Register() => View();
+//     public RegisterController(ILogger<RegisterController> logger, IUserService userService, 
+//         IPasswordHasher hasher, IAesEncryptor encryptor)
+//     {
+//         _logger = logger;
+//         _hasher = hasher;
+//         _encryptor = encryptor;
+//         _userService = userService;
+//     }
 
-    [HttpPost]
-    public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
-    {
-        if (!ModelState.IsValid) 
-        {
-            _logger.LogInformation("Invalid model.");
-            return View(model);
-        }
-        if (await _userService.GetByEmail(model.Email) != null || await _userService.GetByPhone(model.PhoneNumber) != null)
-        {
-            _logger.LogInformation("User with this email and/or phone is already registered.");
-            return View(model);
-        }
+//     // Displays the registration form.
+//     [HttpGet]
+//     public IActionResult Register() => View();
 
-        var user = new User
-        {
-            FirstName = model.FirstName,
-            LastName = model.LastName,
-            Email = model.Email,
-            PasswordHash = _hasher.HashString(model.Password),
-            DeliveryAddress = model.DeliveryAddress,
-            PhoneNumber = model.PhoneNumber,
-            ProfilePicture = model.ProfilePicture
-        };
+//     // Handles the registration form submission.
+//     [HttpPost]
+//     public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
+//     {
+//         if (!ModelState.IsValid) 
+//         {
+//             _logger.LogInformation("Invalid model.");
+//             return View(model);
+//         }
 
-        if (user == null)
-        {
-            _logger.LogError("Error with creating user.");
-            return View(model);
-        }
+//         var email = _encryptor.EncryptString(model.Email);
+//         var phone = _encryptor.EncryptString(model.PhoneNumber);
 
-        await _userService.Create(user);
+//         // Check if a user with the same email or phone already exists
+//         if (await _userService.GetByEmail(email) != null || 
+//             await _userService.GetByPhone(phone) != null)
+//         {
+//             _logger.LogInformation("User with this email and/or phone is already registered.");
+//             return View(model);
+//         }
+        
+//         // Creating a new instance of user
+//         var user = new User
+//         {
+//             FirstName = model.FirstName,
+//             LastName = model.LastName,
+//             Email = email,
+//             PasswordHash = _hasher.HashString(model.Password),
+//             DeliveryAddress = _encryptor.EncryptString(model.DeliveryAddress),
+//             PhoneNumber = phone,
+//             ProfilePicture = model.ProfilePicture
+//         };
 
-        // Log successful registration
-        _logger.LogInformation($"User registered: {user.Id}");
+//         // Check if user creation was successful
+//         if (user is null)
+//         {
+//             _logger.LogError("Error with creating user.");
+//             return View(model);
+//         }
 
-        // Redirect to login page
-        return RedirectToAction("Login");        
-    }
-}
+//         // Save the user to the database
+//         await _userService.Create(user);
+
+//         // Log successful registration
+//         _logger.LogInformation($"User registered: {user.Id}");
+
+//         // Redirect to login page
+//         return RedirectToAction("Login");        
+//     }
+// }

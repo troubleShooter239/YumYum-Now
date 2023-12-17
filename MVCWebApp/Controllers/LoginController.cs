@@ -1,96 +1,99 @@
-﻿using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
-using MVCWebApp.Models;
-using MVCWebApp.Models.User;
-using MVCWebApp.Services;
-using MVCWebApp.Tools.Encrypters;
-using MVCWebApp.Tools.Hashers;
+﻿// using System.Security.Claims;
+// using Microsoft.AspNetCore.Authentication;
+// using Microsoft.AspNetCore.Authentication.Cookies;
+// using Microsoft.AspNetCore.Mvc;
+// using MVCWebApp.Models;
+// using MVCWebApp.Models.User;
+// using MVCWebApp.Services.EncryptorService;
+// using MVCWebApp.Services.HasherService;
+// using MVCWebApp.Services.UserService;
 
-namespace MVCWebApp.Controllers;
+// namespace MVCWebApp.Controllers;
 
-public class LoginController : Controller
-{
-    private readonly ILogger<LoginController> _logger;
-    private readonly IMongoCollection<User> _userCollection;
-    private readonly IConfiguration _configuration;
-    private readonly IHasher _hasher;
-    private readonly IEncrypter _encrypter;
-    private readonly IUserService _userService;
+// // FIXME
+// public class LoginController : Controller
+// {
+//     private readonly ILogger<LoginController> _logger;
+//     private readonly IUserService _userService;
+//     private readonly IAesEncryptor _encryptor;
+//     private readonly IPasswordHasher _hasher;
 
-    public LoginController(ILogger<LoginController> logger, IMongoCollection<User> userCollection,
-        IConfiguration configuration, IUserService userService)
-    {
-        _logger = logger;
-        _userCollection = userCollection;
-        _configuration = configuration;
-        _hasher = new PasswordHasher(_configuration);
-        _encrypter = new AesEncrypter(_configuration);
-        _userService = userService;
-    }
+//     public LoginController(ILogger<LoginController> logger, IUserService userService, 
+//         IPasswordHasher hasher, IAesEncryptor encryptor)
+//     {
+//         _logger = logger;
+//         _userService = userService;
+//         _hasher = hasher;
+//         _encryptor = encryptor;
+//     }
 
-    [HttpGet]
-    public IActionResult Login() => View();
+//     [HttpGet]
+//     public IActionResult Login() => View();
 
-    [HttpPost]
-    public async Task<IActionResult> Login(LoginViewModel model)
-    {
-        if (!ModelState.IsValid)
-        {
-            _logger.LogInformation("Invalid model.");
-            return View(model);
-        }
+//     [HttpPost]
+//     public async Task<IActionResult> Login(LoginViewModel model)
+//     {
+//         if (!ModelState.IsValid)
+//         {
+//             _logger.LogInformation("Invalid model.");
+//             return View(model);
+//         }
 
-        var encryptedEmail = _encrypter.EncryptString(model.Email);
-        var encryptedPhoneNumber = _encrypter.EncryptString(model.PhoneNumber);
+//         var email = _encryptor.EncryptString(model.Email);
+//         var phone = _encryptor.EncryptString(model.PhoneNumber);
 
-        if (await _userService.GetByEmail(model.Email) != null || await _userService.GetByPhone(model.PhoneNumber) != null)
-        {
-            _logger.LogInformation("User with this email and/or phone is already registered.");
-            return View(model);
-        }
+//         if (await _userService.GetByEmail(email) != null || 
+//             await _userService.GetByPhone(phone) != null)
+//         {
+//             _logger.LogInformation("User with this email and/or phone is already registered.");
+//             return View(model);
+//         }
 
-        if (user == null)
-        {
-            ModelState.AddModelError(string.Empty, "Invalid login attempt");
-            _logger.LogInformation("Invalid login attempt");
-            return View(model);
-        }
+//         var user = new User
+//         {
+//             Email = email,
+//             PhoneNumber = phone,
+//             PasswordHash = _hasher.HashString(model.Password)
+//         };
 
-        if (user.PasswordHash != _hasher.HashString(model.Password))
-        {
-            ModelState.AddModelError(string.Empty, "Invalid password");
-            _logger.LogInformation($"{user.Id}: Invalid password");
-            return View(model);
-        }
+//         if (user is null)
+//         {
+//             _logger.LogInformation("Invalid login attempt");
+//             return View(model);
+//         }
+
+//         if (user.PasswordHash != _hasher.HashString(model.Password))
+//         {
+//             ModelState.AddModelError(string.Empty, "Invalid password");
+//             _logger.LogInformation($"{user.Id}: Invalid password");
+//             return View(model);
+//         }
         
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Email, user.Email),
-            // Add another claims
-        };
+//         var claims = new List<Claim>
+//         {
+//             new Claim(ClaimTypes.Email, user.Email),
+//             // Add another claims
+//         };
 
-        var claimsIdentity = new ClaimsIdentity(
-            claims, CookieAuthenticationDefaults.AuthenticationScheme);
+//         var claimsIdentity = new ClaimsIdentity(
+//             claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-        try
-        {
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                                          new ClaimsPrincipal(claimsIdentity));
-        }
-        catch(Exception ex)
-        {
-            // Log exception
-            _logger.LogError(ex, "Error during user sign in");
-            throw; // Re-throw the exception to ensure proper error handling
-        }
+//         try
+//         {
+//             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+//                                           new ClaimsPrincipal(claimsIdentity));
+//         }
+//         catch(Exception ex)
+//         {
+//             // Log exception
+//             _logger.LogError(ex, "Error during user sign in");
+//             throw; // Re-throw the exception to ensure proper error handling
+//         }
 
-        // Log successful login
-        _logger.LogInformation($"User logged in: {model.Email}");
+//         // Log successful login
+//         _logger.LogInformation($"User logged in: {model.Email}");
 
-        // Redirect to the main page
-        return RedirectToAction("Index", "Home");
-    }
-}
+//         // Redirect to the main page
+//         return RedirectToAction("Index", "Home");
+//     }
+// }

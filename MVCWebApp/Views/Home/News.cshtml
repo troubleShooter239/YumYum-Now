@@ -19,8 +19,7 @@
 				<button
 					class="read-more-btn"
 					onclick="openModal('Текст полной новости 1 фывфыу аывап выап вап')"
-				>
-					Читать далее
+				>Читать далее
 				</button>
 			</div>
 
@@ -34,23 +33,7 @@
 				<button
 					class="read-more-btn"
 					onclick="openModal('Текст полной новости 2')"
-				>
-					Читать далее
-				</button>
-			</div>
-
-			<div class="news">
-				<img
-					src="https://www.kfc.by/admin/files/5658.jpg"
-					alt="Изображение новости 2"
-				/>
-				<h2>Новость 2: Заголовок</h2>
-				<p>Краткое описание или первые несколько предложений новости...</p>
-				<button
-					class="read-more-btn"
-					onclick="openModal('Текст полной новости 2')"
-				>
-					Читать далее
+				>Читать далее
 				</button>
 			</div>
 			<div class="news">
@@ -63,8 +46,7 @@
 				<button
 					class="read-more-btn"
 					onclick="openModal('Текст полной новости 2')"
-				>
-					Читать далее
+				>Читать далее
 				</button>
 			</div>
 			<div class="news">
@@ -77,8 +59,7 @@
 				<button
 					class="read-more-btn"
 					onclick="openModal('Текст полной новости 2')"
-				>
-					Читать далее
+				>Читать далее
 				</button>
 			</div>
 			<div class="news">
@@ -91,29 +72,37 @@
 				<button
 					class="read-more-btn"
 					onclick="openModal('Текст полной новости 2')"
-				>
-					Читать далее
+				>Читать далее
+				</button>
+			</div>
+			<div class="news">
+				<img
+					src="https://www.kfc.by/admin/files/5658.jpg"
+					alt="Изображение новости 2"
+				/>
+				<h2>Новость 2: Заголовок</h2>
+				<p>Краткое описание или первые несколько предложений новости...</p>
+				<button
+					class="read-more-btn"
+					onclick="openModal('Текст полной новости 2')"
+				>Читать далее
 				</button>
 			</div>
 		</div>
-
 		<div id="myModal" class="modal">
 			<div class="modal-content">
 				<span class="close" onclick="closeModal()">&times;</span>
 				<p id="modalText"></p>
 			</div>
 		</div>
-
 		<script>
 			function openModal(text) {
 				document.getElementById('modalText').innerHTML = text
 				document.getElementById('myModal').style.display = 'block'
 			}
-
 			function closeModal() {
 				document.getElementById('myModal').style.display = 'none'
 			}
-
 			window.onclick = function (event) {
 				var modal = document.getElementById('myModal')
 				if (event.target == modal) {

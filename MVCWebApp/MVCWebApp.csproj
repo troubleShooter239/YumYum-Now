@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.23.1" />
+    <Folder Include="Services\UserService\" />
     <Folder Include="Views\Auth\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>

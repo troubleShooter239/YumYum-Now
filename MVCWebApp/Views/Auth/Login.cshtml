@@ -1,6 +1,7 @@
 @model LoginViewModel
 @{
-  ViewData["Title"] = "Sign in to YumYum Now"; 
+  ViewData["Title"] = "Sign in to YumYum Now";
+  // Layout = null; - To delete the header and the footer
 }
 <link
 	rel="stylesheet"
@@ -8,10 +9,7 @@
 	asp-append-version="true"
 />
 <div class="background-panel">
-	<div class="logo">
-		<img src="~/Image/Burger.svg" alt="Burger Image" class="background-image" />
-		<label class="company-text" for="logoName">YumYum Now</label>
-	</div>
+	<partial name="../Shared/Components/_Logo.cshtml" />
 	<div class="login-container">
 		<div class="form-group">
 			<label class="label-text" for="email">Phone number or email:</label>

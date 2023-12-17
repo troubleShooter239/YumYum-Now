@@ -39,6 +39,10 @@ public class HomeController : Controller
     {
         return View();
     }
+       public IActionResult Cabinet()
+    {
+        return View();
+    }
       public IActionResult Map()
     {
         return View();

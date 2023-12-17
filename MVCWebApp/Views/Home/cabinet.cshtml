@@ -1,0 +1,43 @@
+@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль</title>
+  <link rel="stylesheet" href="~/css/cabinet.css" asp-append-version="true" />
+  <script src="~/js/cabinet.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <main class="profile">
+      <div class="user-info">
+        <img
+          src="https://w7.pngwing.com/pngs/263/201/png-transparent-computer-icons-avatar-admission-miscellaneous-logo-silhouette.png"
+          alt="Ваше фото" class="avatar" style="width: 200px; height: 200px;">
+        <h2 class="nickname">NICKNAME</h2>
+        <div class="username">
+          <p>Имя: <span class="input-field firstName"></span></p>
+          <p>Фамилия: <span class="input-field lastName"></span></p>
+          <p>Email: <span class="input-field email"></span></p>
+          <p>Банковская карта: <span class="input-field bankCard"></span></p>
+          <p>Номер телефона: <span class="input-field phoneNumber"></span></p>
+        </div>
+        <div class="button-container">
+          <button onclick="toggleFields()" class="toggle-btn">Изменить</button>
+          <button onclick="applyChanges()" class="apply-btn">Применить</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+
+</body>
+
+
+</html>

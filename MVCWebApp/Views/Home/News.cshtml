@@ -1,168 +1,125 @@
-﻿@page
-@model MyApp.Namespace.NewsModel
-@{
-
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="~/css/news.css" />
+		<title>Новости</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="news">
+				<img
+					src="https://www.kfc.by/admin/files/5665.png"
+					alt="Изображение новости 1"
+				/>
+				<h2>Новость 1: Заголовок</h2>
+				<p>Краткое описание или первые несколько предложений новости...</p>
+				<button
+					class="read-more-btn"
+					onclick="openModal('Текст полной новости 1 фывфыу аывап выап вап')"
+				>
+					Читать далее
+				</button>
+			</div>
 
+			<div class="news">
+				<img
+					src="https://www.kfc.by/admin/files/5658.jpg"
+					alt="Изображение новости 2"
+				/>
+				<h2>Новость 2: Заголовок</h2>
+				<p>Краткое описание или первые несколько предложений новости...</p>
+				<button
+					class="read-more-btn"
+					onclick="openModal('Текст полной новости 2')"
+				>
+					Читать далее
+				</button>
+			</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Новости</title>
-    <style>
-        /* Стили для примера - можно заменить на свои */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+			<div class="news">
+				<img
+					src="https://www.kfc.by/admin/files/5658.jpg"
+					alt="Изображение новости 2"
+				/>
+				<h2>Новость 2: Заголовок</h2>
+				<p>Краткое описание или первые несколько предложений новости...</p>
+				<button
+					class="read-more-btn"
+					onclick="openModal('Текст полной новости 2')"
+				>
+					Читать далее
+				</button>
+			</div>
+			<div class="news">
+				<img
+					src="https://www.kfc.by/admin/files/5658.jpg"
+					alt="Изображение новости 2"
+				/>
+				<h2>Новость 2: Заголовок</h2>
+				<p>Краткое описание или первые несколько предложений новости...</p>
+				<button
+					class="read-more-btn"
+					onclick="openModal('Текст полной новости 2')"
+				>
+					Читать далее
+				</button>
+			</div>
+			<div class="news">
+				<img
+					src="https://www.kfc.by/admin/files/5658.jpg"
+					alt="Изображение новости 2"
+				/>
+				<h2>Новость 2: Заголовок</h2>
+				<p>Краткое описание или первые несколько предложений новости...</p>
+				<button
+					class="read-more-btn"
+					onclick="openModal('Текст полной новости 2')"
+				>
+					Читать далее
+				</button>
+			</div>
+			<div class="news">
+				<img
+					src="https://www.kfc.by/admin/files/5658.jpg"
+					alt="Изображение новости 2"
+				/>
+				<h2>Новость 2: Заголовок</h2>
+				<p>Краткое описание или первые несколько предложений новости...</p>
+				<button
+					class="read-more-btn"
+					onclick="openModal('Текст полной новости 2')"
+				>
+					Читать далее
+				</button>
+			</div>
+		</div>
 
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<p id="modalText"></p>
+			</div>
+		</div>
 
-        .news h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+		<script>
+			function openModal(text) {
+				document.getElementById('modalText').innerHTML = text
+				document.getElementById('myModal').style.display = 'block'
+			}
 
-        .news p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
+			function closeModal() {
+				document.getElementById('myModal').style.display = 'none'
+			}
 
-        .news {
-            width: calc(33.33% - 10px); /* 33.33% для трех колонок с отступами между ними */
-            margin-bottom: 30px;
-            box-sizing: border-box;
-        }
-
-        .news img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        .read-more-btn {
-            background-color: #FFD700;
-            color: #000;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Стили для модального окна */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="news">
-            <img src="https://www.kfc.by/admin/files/5665.png" alt="Изображение новости 1">
-            <h2>Новость 1: Заголовок</h2>
-            <p>Краткое описание или первые несколько предложений новости...</p>
-            <button class="read-more-btn" onclick="openModal('Текст полной новости 1 фывфыу аывап выап вап')">Читать далее</button>
-        </div>
-        
-        <div class="news">
-            <img src="https://www.kfc.by/admin/files/5658.jpg" alt="Изображение новости 2">
-            <h2>Новость 2: Заголовок</h2>
-            <p>Краткое описание или первые несколько предложений новости...</p>
-            <button class="read-more-btn" onclick="openModal('Текст полной новости 2')">Читать далее</button>
-        </div>
-        
-        <!-- Повторяйте этот блок для каждой новости -->
-        <div class="news">
-            <img src="https://www.kfc.by/admin/files/5658.jpg" alt="Изображение новости 2">
-            <h2>Новость 2: Заголовок</h2>
-            <p>Краткое описание или первые несколько предложений новости...</p>
-            <button class="read-more-btn" onclick="openModal('Текст полной новости 2')">Читать далее</button>
-        </div>
-        <div class="news">
-            <img src="https://www.kfc.by/admin/files/5658.jpg" alt="Изображение новости 2">
-            <h2>Новость 2: Заголовок</h2>
-            <p>Краткое описание или первые несколько предложений новости...</p>
-            <button class="read-more-btn" onclick="openModal('Текст полной новости 2')">Читать далее</button>
-        </div>
-        <div class="news">
-            <img src="https://www.kfc.by/admin/files/5658.jpg" alt="Изображение новости 2">
-            <h2>Новость 2: Заголовок</h2>
-            <p>Краткое описание или первые несколько предложений новости...</p>
-            <button class="read-more-btn" onclick="openModal('Текст полной новости 2')">Читать далее</button>
-        </div>
-        <div class="news">
-            <img src="https://www.kfc.by/admin/files/5658.jpg" alt="Изображение новости 2">
-            <h2>Новость 2: Заголовок</h2>
-            <p>Краткое описание или первые несколько предложений новости...</p>
-            <button class="read-more-btn" onclick="openModal('Текст полной новости 2')">Читать далее</button>
-        </div>
-    </div>
-
-    <!-- Модальное окно -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p id="modalText"></p>
-        </div>
-    </div>
-
-    <script>
-        function openModal(text) {
-            document.getElementById('modalText').innerHTML = text;
-            document.getElementById('myModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
-        }
-
-        // Закрывать модальное окно при клике вне его области
-        window.onclick = function(event) {
-            var modal = document.getElementById('myModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
-</body>
+			window.onclick = function (event) {
+				var modal = document.getElementById('myModal')
+				if (event.target == modal) {
+					modal.style.display = 'none'
+				}
+			}
+		</script>
+	</body>
 </html>

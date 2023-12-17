@@ -1,56 +1,56 @@
-@import url("https://fonts.googleapis.com/css2?family=Lemon&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@300&display=swap');
 .slider {
-  width: 2000px;
-  height: 60vh; /* Увеличиваем высоту слайдера */
-  overflow: visible;
-  position: relative;
+	width: 2000px;
+	height: 60vh;
+	overflow: visible;
+	position: relative;
 }
 .food-name {
-  font-family: "Lemon", serif;
-  font-size: 50px;
-  font-weight: bold;
-  padding-left: 60px;
-  color: #101820;
+	font-family: 'Lemon', serif;
+	font-size: 50px;
+	font-weight: bold;
+	padding-left: 60px;
+	color: #101820;
 }
 .food-rectangle {
-  max-width: 100%;
-  height: 20px;
-  border: none;
-  background-color: #101820;
+	max-width: 100%;
+	height: 20px;
+	border: none;
+	background-color: #101820;
 }
 .slide {
-  position: absolute;
-  width: 100%;
-  height: 60vh; /* Увеличиваем высоту слайдов */
-  overflow: hidden;
-  transition: opacity 0.5s;
+	position: absolute;
+	width: 100%;
+	height: 60vh;
+	overflow: hidden;
+	transition: opacity 0.5s;
 }
 
 .slide img {
-  width: 100%; /* Растягиваем картинки на всю ширину слайдов */
-  height: 100%; /* Растягиваем картинки на всю высоту слайдов */
-  object-fit: cover; /* Подгоняем изображения, чтобы они полностью покрывали слайды */
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .slide.active {
-  opacity: 1;
+	opacity: 1;
 }
 
 .slide.inactive {
-  opacity: 0;
+	opacity: 0;
 }
 button {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 html {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+	html {
+		font-size: 16px;
+	}
 }
 
 .btn:focus,
@@ -58,181 +58,179 @@ html {
 .btn-link.nav-link:focus,
 .form-control:focus,
 .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+	box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 .test-rectangle {
-  width: 2px;
-  height: 50px;
-  background: #101820;
-  display: inline-block;
-  margin: 0 10px;
-  flex: 1;
+	width: 2px;
+	height: 50px;
+	background: #101820;
+	display: inline-block;
+	margin: 0 10px;
+	flex: 1;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+	margin-bottom: 60px;
 }
-/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+	white-space: normal;
+	text-align: center;
+	word-break: break-all;
 }
 a.logo-text {
-  font-family: "Lemon", serif;
-  font-size: 16px;
-  color: #101820;
-  margin-left: 10px;
+	font-family: 'Lemon', serif;
+	font-size: 16px;
+	color: #101820;
+	margin-left: 10px;
 }
 .logo-text a:hover {
-  color: #101820;
+	color: #101820;
 }
 
 .image-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 60px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 60px;
 }
 .gram-button {
-  display: inline-block;
-  width: 9vw;
-  padding: 10px 15px;
-  margin: 5px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  background-color: #ffa300;
-  color: #333;
-  transition: background-color 0.3s ease;
+	display: inline-block;
+	width: 9vw;
+	padding: 10px 15px;
+	margin: 5px;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+	background-color: #ffa300;
+	color: #333;
+	transition: background-color 0.3s ease;
 }
 
 .gram-button.active {
-  background-color: black;
-  color: white;
+	background-color: black;
+	color: white;
 }
 
 .description-container {
-  margin-top: 10px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.8); /* Прозрачный белый фон */
-  padding: 10px;
-  box-sizing: border-box;
+	margin-top: 10px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	box-sizing: border-box;
 }
 .image-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column; /* Располагаем кнопки вертикально */
-  align-items: center; /* Центрируем контент по горизонтали */
-  flex-basis: 30%; /* Расчет ширины каждого элемента с учетом промежутков */
-  margin-bottom: 10px; /* Промежутки между рядами */
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-basis: 30%;
+	margin-bottom: 10px;
 }
 .description-text {
-  width: 100%;
-  font-size: 20px;
+	width: 100%;
+	font-size: 20px;
 }
 .image-wrapper img {
-  width: 100%; /* Заполнение всего доступного пространства внутри обертки */
+	width: 100%;
 }
 .container-fluid {
-  background-color: #ffa300;
-  position: absolute;
-  position: fixed;
-  z-index: 100;
+	background-color: #ffa300;
+	position: absolute;
+	position: fixed;
+	z-index: 100;
 }
 .container-fluidd {
-  background-color: #ffffff;
+	background-color: #ffffff;
 }
 
 a {
-  color: #0077cc;
+	color: #0077cc;
 }
 .containerr {
-  display: inline-block; /* Сделать контейнер внутриинлайновым */
-  border-radius: 1000px;
-  background-color: #ffa300;
-  margin: 0;
-  padding: 0;
+	display: inline-block;
+	border-radius: 1000px;
+	background-color: #ffa300;
+	margin: 0;
+	padding: 0;
 }
 .wrapper {
-  display: flex;
-  width: 100vw;
-  justify-content: center;
-  align-items: center;
-  height: 20vh; /* Чтобы контент был по центру по вертикали */
-  top: 100px;
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	height: 20vh;
+	top: 100px;
 }
 .button-containerr {
-  display: inline-block; /* Сделать контейнер с кнопками внутриинлайновым */
-  margin: 0; /* Убрать внешние отступы */
-  padding: 20px; /* Добавить отступы внутри контейнера с кнопками */
-  border-radius: 50px;
-  font-size: 25px;
-  display: flex;
-  align-items: center;
+	display: inline-block;
+	margin: 0;
+	padding: 20px;
+	border-radius: 50px;
+	font-size: 25px;
+	display: flex;
+	align-items: center;
 }
 button {
-  margin: 0 3px; /* Расстояние между кнопками */
-  background-color: #ffa300;
-  border: none; /* Убираем обводку */
-  font-family: "Zen Maru Gothic", sans-serif; /* Установка шрифта */
-  font-size: 24px; /* Установка размера шрифта */
+	margin: 0 3px;
+	background-color: #ffa300;
+	border: none;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	font-size: 24px;
 }
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+	color: #fff;
+	background-color: #1b6ec2;
+	border-color: #1861ac;
 }
 .custom-font {
-  font-family: "Times New Roman", sans-serif !important;
+	font-family: 'Times New Roman', sans-serif !important;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  font-family: "Zen Maru Gothic", sans-serif; /* Установка шрифта */
-  font-size: 24px; /* Установка размера шрифта */
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+	font-family: 'Zen Maru Gothic', sans-serif;
+	font-size: 24px;
+	color: #fff;
+	background-color: #1b6ec2;
+	border-color: #1861ac;
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+	border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+	box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+	font-size: 1rem;
+	line-height: inherit;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	white-space: nowrap;
+	line-height: 60px;
 }
 @media screen and (max-width: 1280px) {
-  .logo-text {
-    font-size: 10px;
-  }
+	.logo-text {
+		font-size: 10px;
+	}
 }

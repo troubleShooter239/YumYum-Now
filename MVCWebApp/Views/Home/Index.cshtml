@@ -2,23 +2,172 @@
 @{
 	ViewData["Title"] = "Home Page";
 }
+<link rel="stylesheet" href="~/css/Home.css" />
 
-@if (Model.Products != null && Model.Products.Any())
-{
-	@foreach (var product in Model.Products)
-	{
+<div class="home">
+	<div class="home-food-type-wrapper">
+
+		<div class="home-food-type-title">
+			<h1 class="reviews-title">Burger</h1>
+			<div class="line"></div>
+		</div>
+		<div class="food-collection-burger">
+			@if (Model.Products != null && Model.Products.Any())
+			{
+			foreach (var product in Model.Products)
+				{
+					if (product.Category == "burger") 
+					{
+					<div class="food-item">
+						<img class="food-item-img" src="@product.ImageUrl" alt="">
+						<p class="food-item-name">@product.Name</p>
+						<p class="food-item-description">@product.Description</p>
+						<div class="food-item-prices">
+							<p class="food-item-prices-text">Portion & prices: </p>
+							<div class="food-item-price-items">
+								@foreach (var i in product.PortionPrice)
+								{
+									<div class="food-item-price-item">
+										<p class="food-item-weight">@i.Key; g</p>
+										<p class="food-item-price">@i.Value; $</p>
+										<button class="buy-btn">Add</button>
+									</div>
+								}
+							</div>
+						</div>
+					</div>
+					}
+				}
+			}
+			else
+			{
+			<p>No products was found :(</p>
+			}
+		</div>
+
+
+		<div class="home-food-type-title">
+			<h1 class="reviews-title">Burrito</h1>
+			<div class="line"></div>
+		</div>
+		<div class="food-collection-burrito">
+			@if (Model.Products != null && Model.Products.Any())
+			{
+			foreach (var product in Model.Products)
+				{
+					if (product.Category == "burrito") 
+					{
+					<div class="food-item">
+						<img class="food-item-img" src="@product.ImageUrl" alt="">
+						<p class="food-item-name">@product.Name</p>
+						<p class="food-item-description">@product.Description</p>
+						<div class="food-item-prices">
+							<p class="food-item-prices-text">Portion & prices: </p>
+							<div class="food-item-price-items">
+								@foreach (var i in product.PortionPrice)
+								{
+									<div class="food-item-price-item">
+										<p class="food-item-weight">@i.Key; g</p>
+										<p class="food-item-price">@i.Value; $</p>
+										<button class="buy-btn">Add</button>
+									</div>
+								}
+							</div>
+						</div>
+					</div>
+					}
+				}
+			}
+			else
+			{
+			<p>No products was found :(</p>
+			}
+		</div>
+
+		<div class="home-food-type-title">
+			<h1 class="reviews-title">Dessert</h1>
+			<div class="line"></div>
+		</div>
+		<div class="food-collection-dessert">
+			@if (Model.Products != null && Model.Products.Any())
+			{
+			foreach (var product in Model.Products)
+				{
+					if (product.Category == "dessert") 
+					{
+					<div class="food-item">
+						<img class="food-item-img" src="@product.ImageUrl" alt="">
+						<p class="food-item-name">@product.Name</p>
+						<p class="food-item-description">@product.Description</p>
+						<div class="food-item-prices">
+							<p class="food-item-prices-text">Portion & prices: </p>
+							<div class="food-item-price-items">
+								@foreach (var i in product.PortionPrice)
+								{
+									<div class="food-item-price-item">
+										<p class="food-item-weight">@i.Key; g</p>
+										<p class="food-item-price">@i.Value; $</p>
+										<button class="buy-btn">Add</button>
+									</div>
+								}
+							</div>
+						</div>
+					</div>
+					}
+				}
+			}
+			else
+			{
+			<p>No products was found :(</p>
+			}
+		</div>
+
+		<div class="home-food-type-title">
+			<h1 class="reviews-title">Kebab</h1>
+			<div class="line"></div>
+		</div>
+		<div class="food-collection-kebab">
+			@if (Model.Products != null && Model.Products.Any())
+			{
+			foreach (var product in Model.Products)
+				{
+					if (product.Category == "kebab") 
+					{
+					<div class="food-item">
+						<img class="food-item-img" src="@product.ImageUrl" alt="">
+						<p class="food-item-name">@product.Name</p>
+						<p class="food-item-description">@product.Description</p>
+						<div class="food-item-prices">
+							<p class="food-item-prices-text">Portion & prices: </p>
+							<div class="food-item-price-items">
+								@foreach (var i in product.PortionPrice)
+								{
+									<div class="food-item-price-item">
+										<p class="food-item-weight">@i.Key; g</p>
+										<p class="food-item-price">@i.Value; $</p>
+										<button class="buy-btn">Add</button>
+									</div>
+								}
+							</div>
+						</div>
+					</div>
+					}
+				}
+			}
+			else
+			{
+			<p>No products was found :(</p>
+			}
+		</div>
 		
-	}
-}
-else
-{
-	<p>No products was found :(</p>
-}
+	</div>
+
+</div>
 
 <div class="container-fluidd">
 	<div style="text-align: center; font-family: Zen Maru Gothic, sans-serif">
-		<h2 style="font-size: 24px">Our location:</h2>
-		<p style="font-size: 18px">We are here:</p>
+		<h2 class="home-map-text home-map-header" style="font-size: 24px">Our location:</h2>
+		<p class="home-map-text" style="font-size: 18px">We are here:</p>
 	</div>
 	<div id="map" style="height: 700px"></div>
 	<script>ymaps.ready(init)</script>

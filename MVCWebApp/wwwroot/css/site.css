@@ -90,6 +90,7 @@ footer {
 .sticky-header-nav {
 	height: 40px;
 	position: sticky;
+	z-index: 1000;
 	top: 0;
 	box-shadow:
 		0 -7px 10px -10px rgba(0, 0, 0, 0.5),

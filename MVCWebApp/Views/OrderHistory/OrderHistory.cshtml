@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile</title>
-  <link rel="stylesheet" href="~/css/Profile.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/css/OrderHistory.css" asp-append-version="true" />
 </head>
 
 <body>
@@ -20,6 +20,62 @@
         <button id="orderHistoryButton" class="button-panel">Order History</button>
       </div>
     </div>
+    <div class="order-container">
+      <div class="order">
+        <div class="order-header">
+          <h2 class="order-date">Заказ от 20 декабря 2023</h2>
+          <p class="order-status">Статус: Доставлено</p>
+        </div>
+        <div class="order-items">
+          <div class="order-item">
+            <img class="item-image" src="http://localhost:5134/Images/shaverma.jpg" alt="Фото товара 1">
+            <div class="item-details">
+              <p class="item-name">Товар 1</p>
+              <p class="item-quantity">Количество: 2</p>
+
+            </div>
+          </div>
+          <div class="order-items">
+            <div class="order-item">
+              <img class="item-image" src="http://localhost:5134/Images/shaverma.jpg" alt="Фото товара 1">
+              <div class="item-details">
+                <p class="item-name">Товар 1</p>
+                <p class="item-quantity">Количество: 2</p>
+              </div>
+            </div>
+
+            <div class="order-item">
+              <img class="item-image" src="url_для_фото_товара_2" alt="Фото товара 2">
+              <div class="item-details">
+                <p class="item-name">Товар 2</p>
+                <p class="item-quantity">Количество: 1</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+
+    <div class="order-container">
+      <div class="order">
+        <div class="order-header">
+          <h2 class="order-date">Заказ от 20 декабря 2023</h2>
+          <p class="order-status">Статус: Доставлено</p>
+        </div>
+        <div class="order-items">
+          <div class="order-item">
+            <img class="item-image" src="http://localhost:5134/Images/shaverma.jpg" alt="Фото товара 1">
+            <div class="item-details">
+              <p class="item-name">Товар 1</p>
+              <p class="item-quantity">Количество: 2</p>
+
+            </div>
 </body>
 <script src="~/js/Profile.js"></script>
+
 </html>

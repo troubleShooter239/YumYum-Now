@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Quicksand:wght@300&family=Zen+Maru+Gothic:wght@800;400&display=swap');
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.left-panel {
+  width: 263px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #FFA500;
+  height: 100%;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Выравнивание по левому краю */
+}
+
+.input-field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Выравнивание по левому краю */
+  
+}
+
+label {
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800px;
+}
+
+input {
+  padding: 5px;
+  border: 2px solid #101820;
+  border-radius: 10px;
+  width: 300px;
+  height: 20px;
+  background-color: #FFA500;
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 800px;
+  
+}
+
+.button-panel {
+  display: flex;
+  width: 100%;
+  max-width: 313px;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+  flex-shrink: 0;
+  border: 4px solid #101820;
+  background-color: #FFA500;
+  font-size: 20px;
+}
+.container-save-button
+{
+  display: flex;
+  align-items: center;
+}
+.save-button {
+  margin-top: 10px; /* Отступ между последним полем ввода и кнопкой "Сохранить" */
+  padding: 10px; /* Отступы вокруг кнопки */
+  background-color: #FFA500; /* Цвет фона кнопки */
+  color: #333; /* Цвет текста кнопки */
+  border: none; /* Убираем границу кнопки */
+  border-radius: 10px; /* Скругление углов кнопки */
+  cursor: pointer; /* Добавляем курсор при наведении */
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  border: 2px solid #333;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800px;
+  display: flex; /* Разрешаем использование flex-контейнера */
+  align-items: center; /* Выравниваем по центру по вертикали */
+  justify-content: center;
+}
+.circle-image {
+  background: rgba(15, 28, 63, 0.125);
+  border-radius: 50%;
+  height: 16em;
+  object-fit: cover;
+  width: 16em;
+  border: 2px solid #101820;
+}
+.save-button:hover
+{
+background-color: #101820;
+color: #FFA500;
+}
+.button-panel.active {
+  background-color: #101820;
+  color: #FFA500;
+}
+.button-panel.active,
+.button-panel:hover {
+  background-color: #101820;
+  color: #FFA500;
+}
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .left-panel {
+    max-width: 30%;
+  }
+
+  .tabs,
+  .button-panel {
+    max-width: 300px;
+  }
+}
+.order-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .order {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 400px; /* Ширина одного заказа */
+    max-width: 100%; /* На всю ширину при маленьких экранах */
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .order-date {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .order-status {
+    color: #333;
+    font-style: italic;
+    margin: 0;
+  }
+  
+  .order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Отступ между товарами в заказе */
+  }
+  .item-name {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .item-quantity {
+    color: #666;
+    margin: 0;
+  }
+ 
+  
+  .item-image {
+    max-width: 100px; /* Установите нужную максимальную ширину изображения */
+    max-height: 100px; /* Установите нужную максимальную высоту изображения */
+    margin-right: 20px; /* Отступ справа от изображения */
+    /* Дополнительные стили, если нужны */
+  }
+  .item-info {
+    margin-left: 10px; /* Отступ справа от изображения */
+  }
+    
+  

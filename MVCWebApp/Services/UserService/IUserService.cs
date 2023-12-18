@@ -1,4 +1,4 @@
-﻿using MVCWebApp.Models.User;
+﻿using MVCWebApp.Models.UserDB;
 
 namespace MVCWebApp.Services.UserService;
 
@@ -55,4 +55,12 @@ public interface IUserService
     /// <param name="id">The ID of the user to remove.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
     Task Remove(string id);
+
+    /// <summary>
+    /// Authenticates a user based on email and password.
+    /// </summary>
+    /// <param name="email">The email address of the user.</param>
+    /// <param name="passwordHash">The hashed password of the user.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the user.</returns>
+    Task<User> Authenticate(string email, string passwordHash);
 }

@@ -1,56 +1,38 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MVCWebApp.Models;
+using MVCWebApp.Services.ProductService;
 
 namespace MVCWebApp.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IProductService _productService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IProductService productService)
     {
         _logger = logger;
+        _productService = productService;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+    public IActionResult Privacy() => View();
+    public IActionResult News() => View();
+    public IActionResult Reviews() => View();
+    public IActionResult AboutUs() => View();
+    public IActionResult Map() => View();
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-      public IActionResult News()
-    {
-        return View();
-    }
-       public IActionResult Discounts()
-    {
-      
-       return Redirect("https://habr.com/ru/flows/develop/articles/"); 
-    }
-        public IActionResult Reviews()
-    {
-        return View();
-    }
-        public IActionResult AboutUs()
-    {
-        return View();
-    }
-       public IActionResult Cabinet()
-    {
-        return View();
-    }
-      public IActionResult Map()
-    {
-        return View();
-    }
-   
+    // [HttpPost]
+    // public async Task<IActionResult> IndexAsync([FromBody] Product product)
+    // {
+    //     await _productService.Create(product);
+    //     return View();
+    // }
 
-
-
+    [HttpGet]
+    public async Task<IActionResult> IndexAsync() 
+        => View(new IndexViewModel { Products = await _productService.GetAll()});
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

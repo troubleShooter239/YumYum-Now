@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 using MVCWebApp.Models.DbSettings;
-using MVCWebApp.Models.User;
+using MVCWebApp.Models.UserDB;
 
 namespace MVCWebApp.Services.UserService;
 
@@ -34,7 +34,7 @@ public class UserService : IUserService
     /// </summary>
     /// <returns>A task that represents the asynchronous operation. The task result contains the list of users.</returns>
     public async Task<List<User>> GetAll()
-        => (await _users.FindAsync(user => true)).ToList();
+        => (await _users.FindAsync(u => true)).ToList();
 
     /// <summary>
     /// Retrieves a user by ID.
@@ -58,7 +58,7 @@ public class UserService : IUserService
     /// <param name="phone">The phone number of the user to retrieve.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the user.</returns>
     public async Task<User> GetByPhone(string phone)
-        => (await _users.FindAsync(user => user.PhoneNumber == phone)).FirstOrDefault();
+        => (await _users.FindAsync(u => u.PhoneNumber == phone)).FirstOrDefault();
 
     /// <summary>
     /// Removes a user by ID.
@@ -66,7 +66,7 @@ public class UserService : IUserService
     /// <param name="id">The ID of the user to remove.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task Remove(string id)
-        => await _users.DeleteOneAsync(user => user.Id == id);
+        => await _users.DeleteOneAsync(u => u.Id == id);
 
     /// <summary>
     /// Updates a user by ID.
@@ -75,5 +75,14 @@ public class UserService : IUserService
     /// <param name="user">The updated user data.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task Update(string id, User user)
-        => await _users.ReplaceOneAsync(user => user.Id == id, user);
+        => await _users.ReplaceOneAsync(u => u.Id == id, user);
+
+    /// <summary>
+    /// Authenticates a user based on email and password.
+    /// </summary>
+    /// <param name="email">The email address of the user.</param>
+    /// <param name="passwordHash">The hashed password of the user.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the user.</returns>
+    public async Task<User> Authenticate(string email, string passwordHash)
+        => (await _users.FindAsync(u => u.Email == email && u.PasswordHash == passwordHash)).FirstOrDefault();
 }

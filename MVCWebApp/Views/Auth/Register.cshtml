@@ -1,7 +1,7 @@
-@model RegisterViewModel 
-@{ 
-  ViewData["Title"] = "Register on YumYum Now"; 
-  Layout=null; 
+@model LoginViewModel
+@{
+  ViewData["Title"] = "Register on YumYum Now";
+  Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +14,11 @@
     <link rel="icon" type="image/svg+xml" href="~/Images/Logo.svg" />~
 	</head>
 
-	<body>
-		<div class="background-panel background-register-panel">
-			<partial name="../Shared/Components/_Logo.cshtml" />
+<body>
+  <div class="background-panel background-register-panel">
+    <div class="register-logo">
+      <partial name="../Shared/Components/_Logo.cshtml" />
+    </div>
 
 			@using (Html.BeginForm("Register", "Auth", FormMethod.Post))
       { 

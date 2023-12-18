@@ -22,7 +22,7 @@ body::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url("https://i.postimg.cc/KjpZ5gfw/Burger.jpg");
+	background-image: url("https://i.postimg.cc/KzjTWbv6/Chicken.jpg");
 	background-size: cover;
 	filter: blur(5px);
 	z-index: -1;
@@ -51,7 +51,7 @@ body::before {
 .background-register-panel {
 	padding: 25px 0;
 	width: 450px;
-	height: 500px;
+	height: 450px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -61,35 +61,45 @@ body::before {
 }
 
 .background-register-panel {
-	height: 550px;
+	height: 650px;
+}
+
+.login-logo {
+	height: 40%;
+}
+
+.register-logo {
+	height: 17%;
+}
+
+.reset-logo {
+	height: 45%;
+	font-size: 28px;
 }
 
 .logo {
 	display: flex;
 	flex-direction: column;
-	height: 40%;
+	height: 100%;
 	justify-content: space-evenly;
 	align-items: center;
 }
 
-.logo-register {
-	height: 20%;
-}
-
-
 .background-image {
-	height: 100px;
+	height: 60%;
 }
 
 .company-text {
+	margin-bottom: 25px;
 	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	font-family: "Lemon", serif;
-	font-size: 25px;
+	font-size: 20px;
 	color: #101820;
 }
 
 .login-container,
 .login-register-container {
+	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
@@ -102,20 +112,24 @@ body::before {
 }
 
 .custom-button {
+	height: 38px;
 	margin: 15px 0;
 	font-weight: 800;
 	line-height: 35px;
 	cursor: pointer;
-	border: 0.5px solid #101820;
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	border-radius: 25px;
 	width: 360px;
 	font-size: 16px;
 	background-color: #ffa300;
 	font-family: "Zen Maru Gothic", serif;
+	transition: 0.2s;
 }
 .custom-button:hover {
 	background-color: #101820;
 	border: 1px solid white;
+	box-shadow: 0 0 10px rgb(255, 255, 255);
 	color: #fff;
 	transition: 0.2s;
 }
@@ -127,7 +141,6 @@ body::before {
 .label-text {
 	font-size: 16px;
 	margin-left: 1vw;
-	/* font-family: "Open Sans", sans-serif; */
 }
 
 .registration-text {
@@ -137,13 +150,16 @@ body::before {
 
 .custom-input {
 	box-sizing: border-box;
+	margin: 10px 0;
 	padding: 0 15px;
 	height: 38px;
 	width: 360px;
-	border: 0.5px solid #101820;
+	/* border: 0.5px solid #101820; */
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	background-color: #ffa300;
 	border-radius: 25px;
-	border-color: #101820;
+	transition: 0.5s;
 }
 
 .custom-input:focus {

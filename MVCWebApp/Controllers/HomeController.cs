@@ -16,14 +16,15 @@ public class HomeController : Controller
         _productService = productService;
     }
 
-    public IActionResult Privacy() => View();
+    public IActionResult PrivacyPolicy() => View();
+    public IActionResult TermsUse() => View();
     public IActionResult News() => View();
     public IActionResult Reviews() => View();
     public IActionResult AboutUs() => View();
     public IActionResult Map() => View();
 
     public async Task<IActionResult> IndexAsync() 
-        => View(new IndexViewModel {Products = await _productService.GetAll()});
+        => View(new IndexViewModel { Products = await _productService.GetAll()}new IndexViewModel {Products = await _productService.GetAll()});
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

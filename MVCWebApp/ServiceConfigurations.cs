@@ -9,6 +9,7 @@ using MVCWebApp.Models.JWTSettings;
 using MVCWebApp.Models.PasswordHasherSettings;
 using MVCWebApp.Services.EncryptorService;
 using MVCWebApp.Services.HasherService;
+using MVCWebApp.Services.JWTService;
 using MVCWebApp.Services.ProductService;
 using MVCWebApp.Services.UserService;
 
@@ -40,8 +41,9 @@ public static class ServiceConfigurations
         });
 
         // Configure and register services
+        services.AddHttpContextAccessor()
         // PasswordHasher service
-        services.Configure<PasswordHasherSettings>(configuration.GetSection(nameof(PasswordHasherSettings)))
+        .Configure<PasswordHasherSettings>(configuration.GetSection(nameof(PasswordHasherSettings)))
         .AddSingleton<IPasswordHasherSettings>(sp =>
             sp.GetRequiredService<IOptions<PasswordHasherSettings>>().Value)
         .AddScoped<IPasswordHasher, PasswordHasher>()
@@ -63,7 +65,9 @@ public static class ServiceConfigurations
         // User service
         .AddScoped<IUserService, UserService>()
         // Product service
-        .AddScoped<IProductService, ProductService>();
+        .AddScoped<IProductService, ProductService>()
+        // Jwt service
+        .AddScoped<IJwtService, JwtService>();
 
         services.AddControllersWithViews();
     }

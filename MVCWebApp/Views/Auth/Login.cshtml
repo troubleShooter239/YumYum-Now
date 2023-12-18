@@ -1,4 +1,4 @@
-@model LoginViewModel;
+@model LoginViewModel
 @{
 	ViewData["Title"] = "Sign in to YumYum Now"; 
 	Layout = null;
@@ -23,7 +23,9 @@
 			<a class="registration-text" asp-area="" asp-controller="Auth" asp-action="Reset">Forgot password?
 			</a>
 		</div>
-		<div class="login-container">
+
+		@using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+      	{ 
 			<div class="form-group">
 				<label class="label-text" for="email">Phone number or email:</label>
 				<div class="email-input-container">
@@ -44,28 +46,8 @@
 					<span id="password-error" class="error-message"></span>
 				</div>
 			</div>
-			<button class="custom-button">Sign in</button>
-
-			@* <div>
-			<a
-			class="registration-text"
-			asp-area=""
-			asp-controller="Auth"
-			asp-action="Register"
-			>
-			Don't have an account? Register
-			</a>
-			</div>
-			<div>
-			<a
-			class="registration-text"
-			asp-area=""
-			asp-controller="Auth"
-			asp-action="Reset"
-			>Forgot password?
-			</a>
-			</div> *@
-		</div>
+			<button type="submit" class="custom-button">Sign in</button>
+		}
 	</div>
 
 	<script src="~/js/Authentication.js"></script>

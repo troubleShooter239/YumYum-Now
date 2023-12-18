@@ -3,7 +3,7 @@
 	showSlide(slideIndex)
 
 	setInterval(showSlide(++slideIndex), 5000)
-  function showSlide(n) {
+	function showSlide(n) {
 		const slides = $('.slide')
 		if (n >= slides.length) {
 			slideIndex = 0
@@ -20,7 +20,7 @@
 
 	toggle()
 
-  ymaps.ready(init)
+	ymaps.ready(init)
 })
 
 function toggle() {

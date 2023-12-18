@@ -8,5 +8,4 @@ public class RegisterViewModel
     public string Password { get; set; } = string.Empty;
     public string DeliveryAddress { get; set; } = string.Empty;
     public string PhoneNumber { get; set; } = string.Empty;
-    public byte[] ProfilePicture { get; set; } = [];
 }

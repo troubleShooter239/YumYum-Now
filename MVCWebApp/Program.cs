@@ -8,19 +8,13 @@ ServiceConfigurations.ConfigureServices(builder);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
+if (!app.Environment.IsDevelopment()) app.UseExceptionHandler("/Home/Error").UseHsts();
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
+app.UseHttpsRedirection()
+.UseStaticFiles()
+.UseRouting()
+.UseAuthentication()
+.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

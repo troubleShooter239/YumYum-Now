@@ -1,12 +1,15 @@
-﻿using System.Security.Claims;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
-using MVCWebApp.Auth;
 using MVCWebApp.Models.AesEncryptorSettings;
 using MVCWebApp.Models.DbSettings;
+using MVCWebApp.Models.JWTSettings;
 using MVCWebApp.Models.PasswordHasherSettings;
 using MVCWebApp.Services.EncryptorService;
 using MVCWebApp.Services.HasherService;
+using MVCWebApp.Services.ProductService;
 using MVCWebApp.Services.UserService;
 
 namespace MVCWebApp;
@@ -15,56 +18,52 @@ public static class ServiceConfigurations
 {
     public static void ConfigureServices(WebApplicationBuilder builder)
     {
-        var services = builder.Services;
         var configuration = builder.Configuration;
+        var services = builder.Services;
 
-        // Authentication setup
-        services.AddAuthentication("Cookie")
-        .AddCookie("Cookie", config =>
+        services.AddAuthentication(options =>
         {
-            config.LoginPath = "";
-        });
-
-        // Authorization setup
-        services.AddAuthorization(options => 
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =>
         {
-            options.AddPolicy(Roles.ADMIN, builder =>
+            options.TokenValidationParameters = new TokenValidationParameters
             {
-                builder.RequireRole(ClaimTypes.Role, Roles.ADMIN);
-            });
-
-            options.AddPolicy(Roles.USER, builder =>
-            {
-                builder.RequireRole(ClaimTypes.Role, Roles.USER);
-            });
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                    configuration.GetSection("JwtSettings:SigningKey").Value!)),
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ClockSkew = TimeSpan.Zero
+            };
         });
 
         // Configure and register services
         // PasswordHasher service
-        services.Configure<PasswordHasherSettings>(
-            configuration.GetSection(nameof(PasswordHasherSettings))
-        );
-        services.AddSingleton<IPasswordHasherSettings>(sp =>
-            sp.GetRequiredService<IOptions<PasswordHasherSettings>>().Value);
-        services.AddScoped<IPasswordHasher, PasswordHasher>();
-
+        services.Configure<PasswordHasherSettings>(configuration.GetSection(nameof(PasswordHasherSettings)))
+        .AddSingleton<IPasswordHasherSettings>(sp =>
+            sp.GetRequiredService<IOptions<PasswordHasherSettings>>().Value)
+        .AddScoped<IPasswordHasher, PasswordHasher>()
         // AesEncryptor service
-        services.Configure<AesEncryptorSettings>(
-            configuration.GetSection(nameof(AesEncryptorSettings))
-        );
-        services.AddSingleton<IAesEncryptorSettings>(sp =>
-            sp.GetRequiredService<IOptions<AesEncryptorSettings>>().Value);
-        services.AddScoped<IAesEncryptor, AesEncryptor>();
-
+        .Configure<AesEncryptorSettings>(configuration.GetSection(nameof(AesEncryptorSettings)))
+        .AddSingleton<IAesEncryptorSettings>(sp =>
+            sp.GetRequiredService<IOptions<AesEncryptorSettings>>().Value)
+        .AddScoped<IAesEncryptor, AesEncryptor>()
+        // JWT settings
+        .Configure<JwtSettings>(configuration.GetSection(nameof(JwtSettings)))
+        .AddSingleton<IJwtSettings>(sp =>
+            sp.GetRequiredService<IOptions<JwtSettings>>().Value)
+        // DB settings
+        .Configure<YumYumNowDbSettings>(configuration.GetSection(nameof(YumYumNowDbSettings)))
+        .AddSingleton<IYumYumNowDbSettings>(sp => 
+            sp.GetRequiredService<IOptions<YumYumNowDbSettings>>().Value)
+        .AddSingleton<IMongoClient>(s =>
+            new MongoClient(configuration.GetValue<string>("YumYumNowDbSettings:ConnectionString")))
         // User service
-        services.Configure<YumYumNowDbSettings>(
-            configuration.GetSection(nameof(YumYumNowDbSettings))
-        );
-        services.AddSingleton<IYumYumNowDbSettings>(sp => 
-            sp.GetRequiredService<IOptions<YumYumNowDbSettings>>().Value);
-        services.AddSingleton<IMongoClient>(s =>
-            new MongoClient(configuration.GetValue<string>("YumYumNowDbSettings:ConnectionString")));
-        services.AddScoped<IUserService, UserService>();
+        .AddScoped<IUserService, UserService>()
+        // Product service
+        .AddScoped<IProductService, ProductService>();
 
         services.AddControllersWithViews();
     }

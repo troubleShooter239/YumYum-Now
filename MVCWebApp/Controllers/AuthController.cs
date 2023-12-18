@@ -26,6 +26,8 @@ public class AuthController : Controller
         _userService = userService;
     }
 
+    public IActionResult Reset() => View();
+
     // Displays the login form.
     [HttpGet]
     public IActionResult Login() => View();

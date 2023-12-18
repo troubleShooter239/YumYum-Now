@@ -32,6 +32,9 @@ public class HomeController : Controller
        return Redirect("https://habr.com/ru/flows/develop/articles/"); 
     }
 
+    public IActionResult TermsUse() => View();
+    public IActionResult PrivacyPolicy() => View();
+
     public IActionResult ForgotPassword() => View();
         public IActionResult Reviews()
     {

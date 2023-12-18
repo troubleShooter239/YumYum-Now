@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/news.css" />
   </head>
+
   <body>
     <header>
       <div class="site-navigation main-header">
@@ -52,6 +53,7 @@
           asp-action="Index"
           >Home
         </a>
+        @*
         <a
           class="nav-link text-dark"
           asp-area=""
@@ -59,6 +61,7 @@
           asp-action="Discounts"
           >Discounts
         </a>
+        *@
         <a
           class="nav-link text-dark"
           asp-area=""
@@ -92,12 +95,15 @@
         </a>
       </div>
     </div>
-    
-    <div class="test-content">asdasdasdasd</div> <!--Это тестовый контент, не удалять, нужен для тестов-->
 
-    <!-- <div class="container">
+    @*
+    <div class="test-content">asdasdasdasd</div>
+    <!--Это тестовый контент, не удалять, нужен для тестов-->
+    *@
+
+    <div class="container">
       <main role="main" class="pb-3">@RenderBody()</main>
-    </div> -->
+    </div>
     <footer>
       <div class="main-footer">
         <nav class="footer-nav site-navigation">
@@ -129,14 +135,26 @@
         </div>
       </div>
       <div class="copyrighting-text-wrapper">
-        <p class="copyrighting-text">Terms of use</p>
+        <a
+          class="copyrighting-link"
+          asp-area=""
+          asp-controller="Home"
+          asp-action="TermsUse"
+          >Terms of use
+        </a>
         <div class="copyrighting-text">
           <p class="copyrighting-text">
             Copyright PopokBuisness © 2023. All rights reserved.
           </p>
           <p class="copyrighting-text">Support: YumYumNow@hotmail.com</p>
         </div>
-        <p class="copyrighting-text">Privacy policy</p>
+        <a
+          class="copyrighting-link"
+          asp-area=""
+          asp-controller="Home"
+          asp-action="PrivacyPolicy"
+          >Privacy policy
+        </a>
       </div>
     </footer>
   </body>

@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lemon&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap");
 
 * {
-	
 }
 
 body {
@@ -17,13 +16,14 @@ body {
 
 header,
 footer,
-.test-content, .sticky-header-nav {
+.test-content,
+.sticky-header-nav {
 	padding: 0 150px;
 	background-color: #ffa300;
 }
 
 .logo {
-	display: flex
+	display: flex;
 }
 
 .header-logo {
@@ -90,7 +90,9 @@ footer {
 	height: 40px;
 	position: sticky;
 	top: 0;
-	box-shadow: 0 -7px 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+	box-shadow:
+		0 -7px 10px -10px rgba(0, 0, 0, 0.5),
+		0 10px 10px -10px rgba(0, 0, 0, 0.5);
 }
 
 .test-content {
@@ -112,7 +114,9 @@ footer {
 	font-size: 16px;
 	font-weight: 700;
 	text-decoration: none;
-	transition: background-color 0.3s ease, color 0.3s ease;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
 
 	/* border: 1px solid black; */
 }
@@ -120,9 +124,11 @@ footer {
 .nav-link:hover {
 	background-color: #ffffff2e;
 	font-size: 17px;
-	color:rgb(242, 242, 242);
-	border-bottom: 1px solid black;	
-	transition: background-color 0.3s ease, color 0.3s ease;
+	color: rgb(242, 242, 242);
+	border-bottom: 1px solid black;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
 }
 
 .border-none {
@@ -149,11 +155,11 @@ footer {
 	text-align: center;
 	width: 100px;
 	padding: 10px;
-	color:rgb(242, 242, 242);
+	color: rgb(242, 242, 242);
 }
 
 .footer-nav-link:hover {
-	border-bottom: 1px solid rgb(242, 242, 242);	
+	border-bottom: 1px solid rgb(242, 242, 242);
 	background-color: #ffffff10;
 }
 
@@ -174,17 +180,24 @@ footer {
 	align-items: center;
 }
 
-.copyrighting-text {
+.copyrighting-text,
+.copyrighting-link {
 	margin: 5px;
 	display: block;
 	font-family: Quicksand;
 	text-align: center;
 	font-size: 14px;
+	color: white;
 	font-weight: 300;
 }
 
+.copyrighting-link:hover,
+.copyrighting-link:active {
+	color: rgba(255, 255, 255, 0.841);
+}
+
 .contact-icon {
-	padding-right:40px;
+	padding-right: 40px;
 }
 
 .contact-icon:hover {

@@ -1,0 +1,23 @@
+.terms-of-use {
+    padding: 50px 150px;
+    color: #101820;
+	font-family: Quicksand;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.terms-of-use-greetings,
+.terms-of-use-last-upd,
+.terms-of-use-title {
+    text-align: center;
+    font-size: 25px;
+}
+
+.terms-of-use-greetings {
+    font-size: 16px;
+}
+
+.terms-of-use-rule-name {
+	font-size: 20px;
+    padding-left: 40px;
+}

@@ -1,3 +1,136 @@
-﻿@model RegisterViewModel
-@{
+﻿@model LoginViewModel
+@{ 
+    ViewData["Title"] = "Register on YumYum Now"; 
+    Layout =null; 
 }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="~/css/Authentication.css"
+      asp-append-version="true"
+    />
+  </head>
+
+  <body>
+    <div class="background-panel background-register-panel">
+            <partial  name="../Shared/Components/_Logo.cshtml" />
+
+      <div class="login-container login-register-container">
+          <div class="form-group">
+            <label class="label-text" for="firstName">First Name:</label>
+            <div class="name-input-container">
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                minlength="1"
+                maxlength="50"
+                class="custom-input"
+              />
+              <div class="error-message">
+                <span id="firstName-error"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label-text" for="lastName">Last Name:</label>
+            <div class="name-input-container">
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                minlength="1"
+                maxlength="50"
+                class="custom-input"
+              />
+              <div class="error-message">
+                <span id="lastName-error"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label-text" for="phoneNumber">Phone number:</label>
+            <div class="phone-input-container">
+              <input
+                type="tel"
+                id="email"
+                name="email"
+                pattern="[0-9]{10,15}"
+                class="custom-input"
+                title="Please enter a valid phone number"
+              />
+              <div class="error-message">
+                <span id="phone-error"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label-text" for="email">Email:</label>
+            <div class="email-input-container">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                required
+                minlength="10"
+                maxlength="30"
+                class="custom-input"
+              />
+              <div class="error-message">
+                <span id="email-error"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label-text" for="password" id="password-label"
+              >Password:</label
+            >
+
+            <div class="password-input-container">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                maxlength="16"
+                class="custom-input"
+              />
+              <span id="password-error" class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label-text" for="password" id="password-label">
+              Repeat password:</label
+            >
+
+            <div class="password-input-container">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                maxlength="16"
+                class="custom-input"
+              />
+              <span id="password-error" class="error-message"></span>
+            </div>
+          </div>
+
+        <button class="custom-button">Sign up</button>
+      </div>
+    </div>
+
+    <script src="~/js/Authentication.js"></script>
+  </body>
+</html>

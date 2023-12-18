@@ -1,68 +1,72 @@
-@model LoginViewModel
+@model LoginViewModel;
 @{
-  ViewData["Title"] = "Sign in to YumYum Now";
-  // Layout = null; - To delete the header and the footer
+	ViewData["Title"] = "Sign in to YumYum Now"; Layout = null;
 }
-<link
-	rel="stylesheet"
-	href="~/css/Authentication.css"
-	asp-append-version="true"
-/>
-<div class="background-panel">
-	<partial name="../Shared/Components/_Logo.cshtml" />
-	<div class="login-container">
-		<div class="form-group">
-			<label class="label-text" for="email">Phone number or email:</label>
-			<div class="email-input-container">
-				<input
-					type="text"
-					id="email"
-					name="email"
-					required
-					minlength="10"
-					maxlength="30"
-					class="custom-input"
-				/>
-				<div class="error-message">
-					<span id="email-error"></span>
-				</div>
-			</div>
-		</div>
+<!DOCTYPE html>
+<html lang="en">
 
-		<div class="form-group">
-			<label class="label-text" for="password" id="password-label"
-				>Password:</label
-			>
+<head>
+	<link rel="stylesheet" href="~/css/Authentication.css" asp-append-version="true" />
+</head>
 
-			<div class="password-input-container">
-				<input
-					type="password"
-					id="password"
-					name="password"
-					required
-					minlength="8"
-					maxlength="16"
-					class="custom-input"
-				/>
-				<span id="password-error" class="error-message"></span>
-			</div>
-		</div>
-		<button class="custom-button">Sign in</button>
-
+<body>
+	<div class="background-panel">
+		<partial name="../Shared/Components/_Logo.cshtml" />
 		<div>
-			<a
-				class="registration-text"
-				asp-area=""
-				asp-controller="Registration"
-				asp-action="Registration"
-			>
+			<a class="registration-text" asp-area="" asp-controller="Auth" asp-action="Register">
 				Don't have an account? Register
 			</a>
 		</div>
 		<div>
-			<a class="registration-text" href="/password_reset"> Forgot password? </a>
+			<a class="registration-text" asp-area="" asp-controller="Auth" asp-action="Reset">Forgot password?
+			</a>
+		</div>
+		<div class="login-container">
+			<div class="form-group">
+				<label class="label-text" for="email">Phone number or email:</label>
+				<div class="email-input-container">
+					<input type="text" id="email" name="email" required minlength="10" maxlength="30"
+						class="custom-input" />
+					<div class="error-message">
+						<span id="email-error"></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="label-text" for="password" id="password-label">Password:</label>
+
+				<div class="password-input-container">
+					<input type="password" id="password" name="password" required minlength="8" maxlength="16"
+						class="custom-input" />
+					<span id="password-error" class="error-message"></span>
+				</div>
+			</div>
+			<button class="custom-button">Sign in</button>
+
+			@* <div>
+			<a
+			class="registration-text"
+			asp-area=""
+			asp-controller="Auth"
+			asp-action="Register"
+			>
+			Don't have an account? Register
+			</a>
+			</div>
+			<div>
+			<a
+			class="registration-text"
+			asp-area=""
+			asp-controller="Auth"
+			asp-action="Reset"
+			>Forgot password?
+			</a>
+			</div> *@
 		</div>
 	</div>
-</div>
 
-<script src="~/js/Authentication.js"></script>
+	<script src="~/js/Authentication.js"></script>
+</body>
+
+</html>

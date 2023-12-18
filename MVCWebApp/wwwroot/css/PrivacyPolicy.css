@@ -1,0 +1,23 @@
+.privacy-policy {
+    padding: 50px 150px;
+    color: #101820;
+	font-family: Quicksand;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.privacy-policy-greetings,
+.privacy-policy-last-upd,
+.privacy-policy-title {
+    text-align: center;
+    font-size: 25px;
+}
+
+.privacy-policy-greetings {
+    font-size: 16px;
+}
+
+.privacy-policy-rule-name {
+	font-size: 20px;
+    padding-left: 40px;
+}

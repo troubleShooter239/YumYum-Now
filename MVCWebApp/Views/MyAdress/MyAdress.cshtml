@@ -1,0 +1,100 @@
+@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <link rel="stylesheet" href="~/css/MyAdress.css" asp-append-version="true" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <div class="tabs">
+        <button id="profileButton" class="button-panel active">Profile</button>
+        <button id="confidentialityButton" class="button-panel">Confidentiality</button>
+        <button id="orderHistoryButton" class="button-panel">Order History</button>
+      </div>
+      <div class="logout-container">
+        <button id="logoutButton" class="logout-button">Log out</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <label class="label-my-adress">My adress</label>
+      <div class="address-info">
+        <div class="input-field">
+          <input type="text"/>
+          <label>City:</label>
+        </div>
+        <div class="input-field">
+          <input type="text"/>
+          <label>Street:</label>
+        </div>
+        <div class="input-field">
+          <input type="text"/>
+          <label>House:</label>
+        </div>
+        <div class="input-field">
+          <input type="text"/>
+          <label>Apartment:</label>
+        </div>
+        <div class="input-field">
+          <input type="text"/>
+          <label>Entrance:</label>
+        </div>
+        <div class="input-field">
+          <input type="text"/>
+          <label>Floor:</label>
+        </div>
+      </div>
+      <div class="save-button">Save</div>
+    </div>
+</body>
+<script src="~/js/Profile.js"></script>
+<script src="~/js/MyAdress.js"></script>
+<script>document.addEventListener('DOMContentLoaded', function () {
+    const addressInfoInputs = document.querySelectorAll('.address-info .input-field input');
+  
+    addressInfoInputs.forEach(input => {
+      const label = input.nextElementSibling;
+  
+      // Function to set styles when there is a value in the input field
+      const setInitialStyles = () => {
+        if (input.value.trim() !== '') {
+          label.classList.add('filled');
+          label.style.top = '-50%';
+          label.style.fontSize = '30px';
+        } else {
+          label.classList.remove('filled');
+          label.style.top = '50%';
+          label.style.fontSize = '18px';
+        }
+      };
+  
+      // Call the function on page load
+      setInitialStyles();
+  
+      // Focus event handler
+      input.addEventListener('focus', () => {
+        label.classList.add('filled');
+        label.style.top = '-50%';
+        label.style.fontSize = '30px';
+      });
+  
+      // Blur event handler
+      input.addEventListener('blur', () => {
+        if (input.value.trim() === '') {
+          label.classList.remove('filled');
+          label.style.top = '50%';
+          label.style.fontSize = '18px';
+        }
+      });
+    });
+  });
+  </script>
+</html>

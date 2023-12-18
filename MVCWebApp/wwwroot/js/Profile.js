@@ -2,7 +2,7 @@ document.getElementById("profileButton").onclick = function () {
   window.location.href = "/Home/Profile";
 };
 document.getElementById("confidentialityButton").onclick = function () {
-  window.location.href = "/Home/Confidentiality";
+  window.location.href = "/Home/MyAdress";
 };
 document.getElementById("orderHistoryButton").onclick = function () {
   window.location.href = "/Home/OrderHistory";

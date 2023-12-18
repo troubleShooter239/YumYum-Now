@@ -4,17 +4,17 @@ using MVCWebApp.Models;
 
 namespace MVCWebApp.Controllers;
 
-public class ConfidentialityController : Controller
+public class MyAdressController : Controller
 {
-    private readonly ILogger<ConfidentialityController> _logger;
+    private readonly ILogger<MyAdressController> _logger;
 
-    public ConfidentialityController(ILogger<ConfidentialityController> logger)
+    public MyAdressController(ILogger<MyAdressController> logger)
     {
         _logger = logger;
     }
 
-[Route("/Home/Confidentiality")]
-    public IActionResult Confidentiality()
+[Route("/Home/MyAdress")]
+    public IActionResult MyAdress()
     {
         return View();
     }

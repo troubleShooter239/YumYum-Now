@@ -1,14 +1,9 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
 using MVCWebApp.Models;
-using MVCWebApp.Models.JWTSettings;
 using MVCWebApp.Models.UserDB;
 using MVCWebApp.Services.EncryptorService;
 using MVCWebApp.Services.HasherService;
+using MVCWebApp.Services.JWTService;
 using MVCWebApp.Services.UserService;
 
 namespace MVCWebApp;
@@ -19,16 +14,16 @@ public class AuthController : Controller
     private readonly IPasswordHasher _hasher;
     private readonly IAesEncryptor _encryptor;
     private readonly IUserService _userService;
-    private readonly IJwtSettings _JwtSettings;
+    private readonly IJwtService _jwtService;
 
     public AuthController(ILogger<AuthController> logger, IUserService userService, 
-        IPasswordHasher hasher, IAesEncryptor encryptor, IJwtSettings JwtSettings)
+        IPasswordHasher hasher, IAesEncryptor encryptor, IJwtService JwtService)
     {
         _logger = logger;
         _hasher = hasher;
         _encryptor = encryptor;
         _userService = userService;
-        _JwtSettings = JwtSettings;
+        _jwtService = JwtService;
     }
 
     public IActionResult Reset() => View();
@@ -66,13 +61,14 @@ public class AuthController : Controller
             return View(model);
         }
         
-        var jwt = CreateToken(user);
+        var jwt = _jwtService.Create(user);
+        _jwtService.SignIn(jwt);
 
         // Log successful login
         _logger.LogInformation($"User logged in: {model.Email}");
 
         // Redirect to the main page
-        return RedirectToAction("Index", "Home", new { Token = jwt});
+        return RedirectToAction("Index", "Home");
     }
 
     // Displays the registration form.
@@ -123,39 +119,10 @@ public class AuthController : Controller
         // Log successful registration
         _logger.LogInformation($"User registered: {user.Id}");
 
-        var jwt = CreateToken(user);
-
-        SignInWithJwt(jwt);
+        var jwt = _jwtService.Create(user);
+        _jwtService.SignIn(jwt);
 
         // Redirect to the main page
         return RedirectToAction("Index", "Home");        
-    }
-
-    private void SignInWithJwt(string jwt)
-    {
-        var cookieOptions = new CookieOptions
-        {
-            HttpOnly = true,
-            Expires = DateTimeOffset.UtcNow.AddMinutes(_JwtSettings.TokenValidityMinutes),
-        };
-
-        HttpContext.Response.Cookies.Append("YourCustomAuthCookie", jwt, cookieOptions);
-    }
-
-    private string CreateToken(User user)
-    {
-        List<Claim> claims = new()
-        {
-            new Claim(ClaimTypes.Name, user.FirstName)
-        };
-
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_JwtSettings.SigningKey));
-
-        return new JwtSecurityTokenHandler()
-        .WriteToken(new JwtSecurityToken(
-            claims: claims,
-            expires: DateTime.Now.AddMinutes(_JwtSettings.TokenValidityMinutes),
-            signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature)
-        ));
     }
 }

@@ -1,4 +1,4 @@
-@model LoginViewModel
+@model RegisterViewModel
 @{
   ViewData["Title"] = "Register on YumYum Now";
   Layout = null;
@@ -21,7 +21,7 @@
     </div>
 
 			@using (Html.BeginForm("Register", "Auth", FormMethod.Post))
-      { 
+      		{ 
 				<div class="form-group">
 					<label class="label-text" for="firstName">First Name:</label>
 					<div class="name-input-container">

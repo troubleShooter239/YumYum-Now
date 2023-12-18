@@ -1,13 +1,18 @@
 @model IndexViewModel
 @{
-	ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home";
 }
 
 @if (Model.Products != null && Model.Products.Any())
 {
-	@foreach (var product in Model.Products)
+	foreach (var product in Model.Products)
 	{
-		
+		<p>@product.Name</p>
+		foreach (var i in product.PortionPrice)
+		{
+			@i.Key;
+			@i.Value;
+		}
 	}
 }
 else

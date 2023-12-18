@@ -41,13 +41,13 @@
               >Login
               </a>  
 
-              <a
+              @* <a
               class="nav-link text-dark border-none"
               asp-area=""
               asp-controller="Account"
               asp-action="Profile"
               >Profile
-              </a>  
+              </a>   *@
             
           </div>
         </nav>
@@ -79,9 +79,7 @@
         </a>
         <a
           class="nav-link text-dark"
-          asp-area=""
-          asp-controller="Home"
-          asp-action="AboutUs"
+          href="https://github.com/troubleShooter239/MVC-Web-App"
           >About Us
         </a>
       </div>
@@ -89,9 +87,10 @@
         <img src="~/Images/Cart.svg" alt="Cart Image" class="icon" />
         <a
           class="nav-link text-dark border-none"
-          asp-area=""
+          href
+          @* asp-area=""
           asp-controller="Cart"
-          asp-action=""
+          asp-action="" *@
           >Cart
         </a>
       </div>
@@ -110,7 +109,7 @@
         <div class="contacts-links site-navigation">
           <span class="contact-text contact-item">Social: </span>
           <div class="contact-item">
-            <a href="https://www.instagram.com/?hl=ru">
+            <a href="https://www.instagram.com/yumyumnow13/">
               <img
                 src="~/Images/InstLogo.svg"
                 alt="Instagram logo"
@@ -119,7 +118,7 @@
             </a>
           </div>
           <div class="contact-item">
-            <a href="https://www.tiktok.com/en">
+            <a href="https://www.tiktok.com/">
               <img
                 src="~/Images/TikTokLogo.svg"
                 alt="TikTok logo"

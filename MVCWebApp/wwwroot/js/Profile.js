@@ -5,7 +5,7 @@ document.getElementById("confidentialityButton").onclick = function () {
   window.location.href = "/Home/Confidentiality";
 };
 document.getElementById("orderHistoryButton").onclick = function () {
-  window.location.href = "/Profile/OrderHistory";
+  window.location.href = "/Home/OrderHistory";
 };
 document.addEventListener("DOMContentLoaded", function () {
   // Получаем текущий URL страницы

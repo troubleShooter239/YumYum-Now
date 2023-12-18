@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Quicksand:wght@300&family=Zen+Maru+Gothic:wght@800;400&display=swap');
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.left-panel {
+  width: 263px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #FFA500;
+  height: 100%;
+  box-shadow: 0 0 5px black;
+  z-index: 1;
+}
+
+.tabs {
+  display: flex;
+  width: 100%;
+  height: 30%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3dcb0;
+}
+/* Add the following styles to your existing CSS */
+
+.left-panel {
+  position: relative; /* Add position relative to the left-panel */
+}
+
+.logout-container {
+  position: absolute;
+  bottom: 20px; /* Adjust the distance from the bottom as needed */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-button {
+  padding: 10px;
+  background-color: #FFA500;
+  color: #101820;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 150px;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+  border: 2px solid #101820;
+}
+
+.logout-button:hover {
+  background-color: #101820;
+  color: #FFA500;
+}
+
+.input-field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Выравнивание по левому краю */
+}
+
+.input-field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between; /* Выравнивание по левому краю */
+  
+}
+
+label {
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800px;
+}
+
+input {
+  padding: 5px;
+  border: 2px solid #101820;
+  border-radius: 10px;
+  width: 300px;
+  height: 20px;
+  background-color: #FFA500;
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 800px;
+  
+}
+
+.button-panel {
+  display: flex;
+  width: 100%;
+  max-width: 313px;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+  flex-shrink: 0;
+  border: 2px solid #101820;
+  background-color: #FFA500;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800;
+}
+.container-save-button
+{
+  display: flex;
+  align-items: center;
+}
+.save-button {
+  margin-top: 10px; /* Отступ между последним полем ввода и кнопкой "Сохранить" */
+  padding: 10px; /* Отступы вокруг кнопки */
+  background-color: #FFA500; /* Цвет фона кнопки */
+  color: #333; /* Цвет текста кнопки */
+  border: none; /* Убираем границу кнопки */
+  border-radius: 10px; /* Скругление углов кнопки */
+  cursor: pointer; /* Добавляем курсор при наведении */
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  border: 2px solid #333;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800px;
+  display: flex; /* Разрешаем использование flex-контейнера */
+  align-items: center; /* Выравниваем по центру по вертикали */
+  justify-content: center;
+}
+.circle-image {
+  background: rgba(15, 28, 63, 0.125);
+  border-radius: 50%;
+  height: 16em;
+  object-fit: cover;
+  width: 16em;
+  border: 2px solid #101820;
+}
+.save-button:hover
+{
+background-color: #101820;
+color: #FFA500;
+}
+.button-panel.active {
+  background-color: #101820;
+  color: #FFA500;
+}
+.button-panel.active,
+.button-panel:hover {
+  background-color: #101820;
+  color: #FFA500;
+}
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .left-panel {
+    max-width: 30%;
+  }
+
+  .tabs,
+  .button-panel {
+    max-width: 300px;
+  }
+}

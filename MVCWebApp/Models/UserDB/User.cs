@@ -1,11 +1,12 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MVCWebApp.Models.Cart;
 using MVCWebApp.Models.Payment;
 
-namespace MVCWebApp.Models.User;
+namespace MVCWebApp.Models.UserDB;
 
 [BsonIgnoreExtraElements]
-public class User
+public class User : IUser
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
@@ -31,6 +32,12 @@ public class User
 
     [BsonElement("card_details")]
     public CreditCard CardDetails { get; set; }
+
+    [BsonElement("history_orders")]
+    public OrderHistory HistoryOrders { get; set; } = new();
+
+    [BsonElement("shopping_cart")]
+    public ShoppingCart ShoppingCart { get; set; } = new();
 
     [BsonElement("profile_picture")]
     public byte[] ProfilePicture { get; set; } = [];

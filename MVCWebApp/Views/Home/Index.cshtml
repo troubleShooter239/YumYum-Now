@@ -1,31 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@model IndexViewModel
+@{
+	ViewData["Title"] = "Home Page";
 }
-<head>
-	@* <style>
-		footer .main-footer {
-			padding: 20px 0;
-			background: #212121;
-			color: #ffa300;
-		}
-		.btn:hover,
-		.btn:focus,
-		.btn.active {
-			background: #000000;
-			color: #fff;
-			-webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-			-moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-			-ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-			-o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-			box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-			-webkit-transition: all 250ms ease-in-out 0s;
-			-moz-transition: all 250ms ease-in-out 0s;
-			-ms-transition: all 250ms ease-in-out 0s;
-			-o-transition: all 250ms ease-in-out 0s;
-			transition: all 250ms ease-in-out 0s;
-		}
-	</style> *@
-</head>
 <form id="form1" runat="server">
 	<div>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -36,18 +12,10 @@
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img
-						class="first-slide"
-						src="Images/shaverma.jpg"
-						alt="First slide"
-					/>
+					<img class="first-slide" src="Images/shaverma.jpg" alt="First slide" />
 				</div>
 				<div class="item">
-					<img
-						class="second-slide"
-						src="Images/Slider2.svg"
-						alt="Second slide"
-					/>
+					<img class="second-slide" src="Images/Slider2.svg" alt="Second slide" />
 				</div>
 				<div class="item">
 					<img class="third-slide" src="Images/Slider3.svg" alt="Third slide" />
@@ -270,7 +238,4 @@
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script
-	src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=en_US"
-	type="text/javascript"
-></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=en_US" type="text/javascript"></script>

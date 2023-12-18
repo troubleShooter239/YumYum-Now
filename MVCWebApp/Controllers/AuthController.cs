@@ -30,6 +30,8 @@ public class AuthController : Controller
         _JwtSettings = JwtSettings;
     }
 
+    public IActionResult Reset() => View();
+
     [HttpGet]
     public IActionResult ForgotPassword() => View();
 

@@ -1,114 +1,86 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="~/css/news.css" />
-		<title>Новости</title>
-	</head>
-	<body>
-		<div class="container">
-			<div class="news">
-				<img
-					src="https://www.kfc.by/admin/files/5665.png"
-					alt="Изображение новости 1"
-				/>
-				<h2>Новость 1: Заголовок</h2>
-				<p>Краткое описание или первые несколько предложений новости...</p>
-				<button
-					class="read-more-btn"
-					onclick="openModal('Текст полной новости 1 фывфыу аывап выап вап')"
-				>Читать далее
-				</button>
-			</div>
+﻿@{
+	ViewData["Title"] = "News";
+}
+<link rel="stylesheet" href="~/css/News.css" />
 
-			<div class="news">
-				<img
-					src="https://www.kfc.by/admin/files/5658.jpg"
-					alt="Изображение новости 2"
-				/>
-				<h2>Новость 2: Заголовок</h2>
-				<p>Краткое описание или первые несколько предложений новости...</p>
-				<button
-					class="read-more-btn"
-					onclick="openModal('Текст полной новости 2')"
-				>Читать далее
-				</button>
-			</div>
-			<div class="news">
-				<img
-					src="https://www.kfc.by/admin/files/5658.jpg"
-					alt="Изображение новости 2"
-				/>
-				<h2>Новость 2: Заголовок</h2>
-				<p>Краткое описание или первые несколько предложений новости...</p>
-				<button
-					class="read-more-btn"
-					onclick="openModal('Текст полной новости 2')"
-				>Читать далее
-				</button>
-			</div>
-			<div class="news">
-				<img
-					src="https://www.kfc.by/admin/files/5658.jpg"
-					alt="Изображение новости 2"
-				/>
-				<h2>Новость 2: Заголовок</h2>
-				<p>Краткое описание или первые несколько предложений новости...</p>
-				<button
-					class="read-more-btn"
-					onclick="openModal('Текст полной новости 2')"
-				>Читать далее
-				</button>
-			</div>
-			<div class="news">
-				<img
-					src="https://www.kfc.by/admin/files/5658.jpg"
-					alt="Изображение новости 2"
-				/>
-				<h2>Новость 2: Заголовок</h2>
-				<p>Краткое описание или первые несколько предложений новости...</p>
-				<button
-					class="read-more-btn"
-					onclick="openModal('Текст полной новости 2')"
-				>Читать далее
-				</button>
-			</div>
-			<div class="news">
-				<img
-					src="https://www.kfc.by/admin/files/5658.jpg"
-					alt="Изображение новости 2"
-				/>
-				<h2>Новость 2: Заголовок</h2>
-				<p>Краткое описание или первые несколько предложений новости...</p>
-				<button
-					class="read-more-btn"
-					onclick="openModal('Текст полной новости 2')"
-				>Читать далее
-				</button>
-			</div>
-		</div>
-		<div id="myModal" class="modal">
-			<div class="modal-content">
-				<span class="close" onclick="closeModal()">&times;</span>
-				<p id="modalText"></p>
-			</div>
-		</div>
-		<script>
-			function openModal(text) {
-				document.getElementById('modalText').innerHTML = text
-				document.getElementById('myModal').style.display = 'block'
-			}
-			function closeModal() {
-				document.getElementById('myModal').style.display = 'none'
-			}
-			window.onclick = function (event) {
-				var modal = document.getElementById('myModal')
-				if (event.target == modal) {
-					modal.style.display = 'none'
-				}
-			}
-		</script>
-	</body>
-</html>
+<div class="news-wrapper">
+	<div id="1-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5665.png" alt="news 1" />
+		<p class="new-text">1. News: "Try Our Mega Burger Today!"</p>
+		<button class="read-more-btn" onclick="openModal(event, 'Short Description: Unleash your taste buds with our new Mega Burger—packed with succulent patties, crisp veggies, and a tantalizing secret sauce. A flavor explosion in every bite that you won\'t want to miss!')">Read more
+		</button>
+	</div>
+	<div id="2-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5658.jpg" alt="news 2" />
+		<p class="new-text">2. News: "Shawarma Remix: Exciting Flavors Await!"</p>
+		<button class="read-more-btn" onclick="openModal(event, 'Short Description: Dive into bold shawarma flavors with our exotic twists. From zesty fillings to unique sauces, our Shawarma Remix is an adventure for your palate. Try these exciting flavors today and elevate your shawarma experience!')">Read more
+		</button>
+	</div>
+	<div id="3-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5658.jpg" alt="news 2" />
+		<p class="new-text">3. News: "Burger Bonanza Week!"</p>
+		<button class="read-more-btn" onclick="openModal(event, 'Short Description: Indulge in a week-long celebration of burgers! Join us for Burger Bonanza Week and enjoy daily specials, irresistible discounts, and exclusive offers on our delectable range of burgers. It\'s a burger lover\'s dream come true—don\'t miss the festivities!')">Read more
+		</button>
+	</div>
+	<div id="4-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5658.jpg" alt="news 2" />
+		<p class="new-text">4. News: "Shawarma Fusion Fiesta!"</p>
+		<button class="read-more-btn" onclick="openModal(event, 'Short Description: Immerse yourself in a Shawarma Fusion Fiesta! Our latest menu introduces innovative combinations that redefine shawarma. Experience a fusion of flavors and discover shawarma like never before—available now for your culinary delight!')">Read more
+		</button>
+	</div>
+	<div id="5-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5658.jpg" alt="news 2" />
+		<p class="new-text">5. News: "Vegan Delights at Your Doorstep!"</p>
+		<button class="read-more-btn" onclick="openModal(event, 'Short Description: Elevate your dining experience with our delectable vegan options delivered straight to your doorstep. Our vegan delights are not only healthy but also bursting with flavor, making it easier than ever to enjoy a satisfying and cruelty-free meal at home.')">Read more
+		</button>
+	</div>
+	<div id="6-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5658.jpg" alt="news 2" />
+		<p class="new-text">6. News: "Bite-sized Bliss: Introducing Slider Selections!"</p>
+		<button class="read-more-btn" onclick="openModal(event,'Short Description: Big taste in a small package! Introducing Slider Selections—perfectly portioned for bite-sized bliss. Discover a variety of flavors in our new sliders, ensuring every order is a delightful and satisfying experience for your taste buds.')">Read more
+		</button>
+	</div>
+	<div id="7-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5658.jpg" alt="news 2" />
+		<p class="new-text">7. News: "Burger Artistry Unleashed: Limited Edition Creations!"</p>
+		<button class="read-more-btn" onclick="openModal(event, 'Short Description: Immerse yourself in culinary creativity with our Limited Edition Burger Creations. Our chefs have crafted unique masterpieces, available for a limited time only. Unleash your taste for artistry and savor these exclusive burgers while they last!')">Read more
+		</button>
+	</div>
+	<div id="8-new" class="new">
+		<img class="new-img" src="https://www.kfc.by/admin/files/5658.jpg" alt="news 2" />
+		<p class="new-text">8. News: "Shawarma Spotlight: Local Flavors Take Center Stage!"</p>
+		<button class="read-more-btn" onclick="openModal(event, 'Short Description: Celebrate local flavors with our Shawarma Spotlight series. We\'re highlighting regional influences with special shawarma variations that showcase the diverse and delicious tastes of our community. Join us in exploring the rich tapestry of flavors in every bite!')">Read more
+		</button>
+	</div>
+</div>
+<div id="myModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img id="open-news-img" src="" alt="news image">
+		<p id="modalText"></p>
+	</div>
+</div>
+<script>
+	function openModal(event, text) {
+		document.getElementById('modalText').innerHTML = text
+		let myModal = document.getElementById('myModal')
+		let imageURL = document.getElementById(event.target.parentNode.id).childNodes[1].src
+		myModal.style.display = 'flex'
+		myModal.style.justifyContent = 'center'
+		myModal.style.alignItems = 'center'
+		let imageModal = document.getElementById('open-news-img')
+		imageModal.setAttribute("src", imageURL)
+		imageModal.style.width = '100%'
+		imageModal.style.borderRadius = '10px'
+
+	}
+	function closeModal() {
+		document.getElementById('myModal').style.display = 'none'
+	}
+	window.onclick = function (event) {
+		var modal = document.getElementById('myModal')
+		if (event.target == modal) {
+			modal.style.display = 'none'
+		}
+	}
+</script>

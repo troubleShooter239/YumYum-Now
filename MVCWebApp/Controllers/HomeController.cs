@@ -31,7 +31,7 @@ public class HomeController : Controller
 
     [HttpGet]
     public async Task<IActionResult> IndexAsync() 
-        => View(new IndexViewModel { Products = await _productService.GetAll()});
+        => View();
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

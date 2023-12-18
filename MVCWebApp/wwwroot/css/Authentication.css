@@ -22,7 +22,7 @@ body::before {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url("https://i.postimg.cc/KjpZ5gfw/Burger.jpg");
+	background-image: url("https://i.postimg.cc/KzjTWbv6/Chicken.jpg");
 	background-size: cover;
 	filter: blur(5px);
 	z-index: -1;
@@ -61,7 +61,7 @@ body::before {
 }
 
 .background-register-panel {
-	height: 550px;
+	height: 650px;
 }
 
 .logo {
@@ -73,7 +73,7 @@ body::before {
 }
 
 .logo-register {
-	height: 20%;
+	height: 17%;
 }
 
 
@@ -102,20 +102,24 @@ body::before {
 }
 
 .custom-button {
+	height: 38px;
 	margin: 15px 0;
 	font-weight: 800;
 	line-height: 35px;
 	cursor: pointer;
-	border: 0.5px solid #101820;
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	border-radius: 25px;
 	width: 360px;
 	font-size: 16px;
 	background-color: #ffa300;
 	font-family: "Zen Maru Gothic", serif;
+	transition: 0.2s;
 }
 .custom-button:hover {
 	background-color: #101820;
 	border: 1px solid white;
+	box-shadow: 0 0 10px rgb(255, 255, 255);
 	color: #fff;
 	transition: 0.2s;
 }
@@ -127,7 +131,6 @@ body::before {
 .label-text {
 	font-size: 16px;
 	margin-left: 1vw;
-	/* font-family: "Open Sans", sans-serif; */
 }
 
 .registration-text {
@@ -137,13 +140,16 @@ body::before {
 
 .custom-input {
 	box-sizing: border-box;
+	margin: 10px 0;
 	padding: 0 15px;
 	height: 38px;
 	width: 360px;
-	border: 0.5px solid #101820;
+	/* border: 0.5px solid #101820; */
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	background-color: #ffa300;
 	border-radius: 25px;
-	border-color: #101820;
+	transition: 0.5s;
 }
 
 .custom-input:focus {

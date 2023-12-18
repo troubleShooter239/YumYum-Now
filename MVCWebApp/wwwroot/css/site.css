@@ -12,6 +12,7 @@ body {
 	font-family: Arial, sans-serif;
 	font-size: 16px;
 	color: #101820;
+	background-color: rgb(230, 224, 224);
 }
 
 header,
@@ -114,21 +115,25 @@ footer {
 	font-size: 16px;
 	font-weight: 700;
 	text-decoration: none;
+	box-shadow: none;
 	transition:
 		background-color 0.3s ease,
-		color 0.3s ease;
-
-	/* border: 1px solid black; */
+		color 0.3s ease,
+		box-shadow 0.3s ease;
 }
 
 .nav-link:hover {
 	background-color: #ffffff2e;
 	font-size: 17px;
 	color: rgb(242, 242, 242);
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.296);
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(255, 255, 255, 0.385);
+	
 	transition:
 		background-color 0.3s ease,
-		color 0.3s ease;
+		color 0.3s ease,
+		box-shadow 0.3s ease;
 }
 
 .border-none {

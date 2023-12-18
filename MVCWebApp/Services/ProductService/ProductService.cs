@@ -9,7 +9,7 @@ public class ProductService : IProductService
     private readonly IMongoCollection<Product> _products;
 
     /// <summary>
-    /// Initializes a new instance of the productservice class.
+    /// Initializes a new instance of the product service class.
     /// </summary>
     /// <param name="settings">The database settings.</param>
     /// <param name="mongoClient">The MongoDB client.</param>
@@ -32,14 +32,14 @@ public class ProductService : IProductService
     /// <param name="id">The ID of the product to retrieve.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the product.</returns>
     public async Task<Product> Get(string id)
-        => (await _products.FindAsync(product => product.Id == id)).FirstOrDefault();
+        => (await _products.FindAsync(p => p.Id == id)).FirstOrDefault();
 
     /// <summary>
     /// Retrieves all products.
     /// </summary>
     /// <returns>A task that represents the asynchronous operation. The task result contains the list of products.</returns>
     public async Task<List<Product>> GetAll()
-        => (await _products.FindAsync(u => true)).ToList();
+        => (await _products.FindAsync(p => true)).ToList();
 
     /// <summary>
     /// Retrieves a product by name.

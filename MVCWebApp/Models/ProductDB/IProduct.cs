@@ -6,6 +6,6 @@ public interface IProduct
     string Category { get; set; }
     string Name { get; set; }
     string Description { get; set; }
-    Dictionary<int, float> PortionPrice { get; set; }
-    byte[] ImageUrl { get; set; }
+    Dictionary<string, double> PortionPrice { get; set; }
+    string ImageUrl { get; set; }
 }

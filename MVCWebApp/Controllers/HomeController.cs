@@ -22,8 +22,16 @@ public class HomeController : Controller
     public IActionResult AboutUs() => View();
     public IActionResult Map() => View();
 
+    // [HttpPost]
+    // public async Task<IActionResult> IndexAsync([FromBody] Product product)
+    // {
+    //     await _productService.Create(product);
+    //     return View();
+    // }
+
+    [HttpGet]
     public async Task<IActionResult> IndexAsync() 
-        => View(await _productService.GetAll());
+        => View(new IndexViewModel { Products = await _productService.GetAll()});
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

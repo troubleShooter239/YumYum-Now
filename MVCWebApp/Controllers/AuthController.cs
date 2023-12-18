@@ -39,7 +39,7 @@ public class AuthController : Controller
 
     // Handles the login form submission.
     [HttpPost]
-    public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+    public async Task<IActionResult> LoginAsync([FromBody] LoginViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -78,7 +78,7 @@ public class AuthController : Controller
 
     // Handles the registration form submission.
     [HttpPost]
-    public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
+    public async Task<IActionResult> RegisterAsync([FromBody] RegisterViewModel model)
     {
         if (!ModelState.IsValid) 
         {
@@ -104,7 +104,6 @@ public class AuthController : Controller
             LastName = model.LastName,
             Email = email,
             PasswordHash = _hasher.HashString(model.Password),
-            DeliveryAddress = _encryptor.EncryptString(model.DeliveryAddress),
             PhoneNumber = phone        
         };
 

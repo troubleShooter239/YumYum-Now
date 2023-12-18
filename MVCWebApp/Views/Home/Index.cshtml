@@ -1,9 +1,10 @@
 ﻿@model IndexViewModel
 @{
     ViewData["Title"] = "Home Page";
+	Layout=null;
 }
 
-бургер
+@* бургер
 <img src='https://i.postimg.cc/fymhy6BV/image.png' border='0' alt='image'/>
 
 двойнойбургер
@@ -21,28 +22,32 @@
 чизбургер
 <img src='https://i.postimg.cc/j257r4X3/image.png' border='0' alt='image'/>
 
-
 классическая
 <img src='https://i.postimg.cc/jd1km8X9/image.png' border='0' alt='image'/>
 
 корейская
-<img src='https://i.postimg.cc/90MJNTqC/image.png' border='0' alt='image'/>
+<img src='https://i.postimg.cc/90MJNTqC/image.png' border='0' alt='image'/> *@
 
-@* @if (Model.Products != null && Model.Products.Any())
+@if (Model.Products != null && Model.Products.Any())
 {
-	@foreach (var product in Model.Products)
+	foreach (var product in Model.Products)
 	{
-		if (product.Category == "Shawarma")
+		if (product.Category == "shawarma")
+		{
+			<p>@product.Name</p>
+			foreach (var i in product.PortionPrice)
+			{
+				<p>Portion @i.Key | Price: @i.Value</p>
+			}
+			<p>@product.ImageUrl</p>
+		}
+		@* else if (product.Category == "kebab")
 		{
 			
-		}
-		else if (product.Category == "Kebab")
-		{
-			
-		}
+		} *@
 	}
 }
 else
 {
 	<p>Food not found :(</p>
-} *@
+}

@@ -1,6 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MVCWebApp.Models;
@@ -80,7 +81,7 @@ public class AuthController : Controller
 
     // Handles the registration form submission.
     [HttpPost]
-    public async Task<IActionResult> RegisterAsync([FromBody] RegisterViewModel model)
+    public async Task<IActionResult> RegisterAsync(RegisterViewModel model)
     {
         if (!ModelState.IsValid) 
         {
@@ -122,8 +123,23 @@ public class AuthController : Controller
         // Log successful registration
         _logger.LogInformation($"User registered: {user.Id}");
 
-        // Redirect to login page
-        return RedirectToAction("Login");        
+        var jwt = CreateToken(user);
+
+        SignInWithJwt(jwt);
+
+        // Redirect to the main page
+        return RedirectToAction("Index", "Home");        
+    }
+
+    private void SignInWithJwt(string jwt)
+    {
+        var cookieOptions = new CookieOptions
+        {
+            HttpOnly = true,
+            Expires = DateTimeOffset.UtcNow.AddMinutes(_JwtSettings.TokenValidityMinutes),
+        };
+
+        HttpContext.Response.Cookies.Append("YourCustomAuthCookie", jwt, cookieOptions);
     }
 
     private string CreateToken(User user)

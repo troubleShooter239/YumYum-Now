@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="~/css/Site.css" />
-    <!-- <link rel="stylesheet" href="~/css/news.css" /> -->
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" type="image/svg+xml" href="~/Images/Logo.svg" />
   </head>
 
   <body>
@@ -32,13 +32,23 @@
           </div>
           <div class="nav-links-wrapper">
             <img src="~/Images/User.svg" alt="User Image" class="icon" />
-            <a
+
+              <a
               class="nav-link text-dark border-none"
               asp-area=""
               asp-controller="Auth"
               asp-action="Login"
               >Login
-            </a>
+              </a>  
+
+              <a
+              class="nav-link text-dark border-none"
+              asp-area=""
+              asp-controller="Account"
+              asp-action="Profile"
+              >Profile
+              </a>  
+            
           </div>
         </nav>
       </div>
@@ -53,15 +63,6 @@
           asp-action="Index"
           >Home
         </a>
-        @*
-        <a
-          class="nav-link text-dark"
-          asp-area=""
-          asp-controller="Home"
-          asp-action="Discounts"
-          >Discounts
-        </a>
-        *@
         <a
           class="nav-link text-dark"
           asp-area=""
@@ -95,12 +96,6 @@
         </a>
       </div>
     </div>
-
-    @*
-    <div class="test-content">asdasdasdasd</div>
-    <!--Это тестовый контент, не удалять, нужен для тестов-->
-    *@
-
     <div class="container">
       <main role="main" class="pb-3">@RenderBody()</main>
     </div>

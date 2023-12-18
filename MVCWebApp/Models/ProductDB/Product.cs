@@ -14,7 +14,7 @@ public class Product : IProduct
     public string Name { get; set; } = string.Empty;
     [BsonElement("description")]
     public string Description { get; set; } = string.Empty;
-    [BsonElement("portion_price")]
+    [BsonElement("portion_prices")]
     public Dictionary<string, double> PortionPrice { get; set; } = [];
     [BsonElement("image_url")]
     public string ImageUrl { get; set; } = string.Empty;

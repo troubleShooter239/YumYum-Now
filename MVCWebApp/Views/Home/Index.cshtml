@@ -3,6 +3,18 @@
 	ViewData["Title"] = "Home Page";
 }
 
+@if (Model.Products != null && Model.Products.Any())
+{
+	@foreach (var product in Model.Products)
+	{
+		
+	}
+}
+else
+{
+	<p>No products was found :(</p>
+}
+
 <div class="container-fluidd">
 	<div style="text-align: center; font-family: Zen Maru Gothic, sans-serif">
 		<h2 style="font-size: 24px">Our location:</h2>

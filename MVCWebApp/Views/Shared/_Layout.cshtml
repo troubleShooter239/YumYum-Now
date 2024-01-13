@@ -1,49 +1,155 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MVCWebApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MVCWebApp.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MVCWebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+  <head>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" type="image/svg+xml" href="~/Images/Logo.svg" />
+  </head>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - MVCWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+  <body>
+    <header>
+      <div class="site-navigation main-header">
+        <div class="logo">
+          <img src="~/Images/Logo.svg" alt="Burger Image" class="header-logo" />
+          <div class="logo-header-text">
+            <label class="company-text" for="logoName">YumYum Now</label>
+            <label class="tagline" for="logoName">SAVOR THE FLAVOR!</label>
+          </div>
         </div>
+
+        <nav class="map-login-header-nav">
+          <div class="nav-links-wrapper">
+            <img
+              src="~/Images/Location.svg"
+              alt="Location Image"
+              class="icon"
+            />
+            <a
+              class="nav-link text-dark border-none"
+              href="#"
+              onclick="scrollToElement('map')"
+              >Map
+            </a>
+          </div>
+          <div class="nav-links-wrapper">
+            <img src="~/Images/User.svg" alt="User Image" class="icon" />
+
+              <a
+              class="nav-link text-dark border-none"
+              asp-area=""
+              asp-controller="Auth"
+              asp-action="Login"
+              >Login
+              </a>  
+
+              @* <a
+              class="nav-link text-dark border-none"
+              asp-area=""
+              asp-controller="Account"
+              asp-action="Profile"
+              >Profile
+              </a>   *@
+            
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="site-navigation sticky-header-nav">
+      <div class="nav-links-wrapper">
+        <a
+          class="nav-link text-dark"
+          asp-area=""
+          asp-controller="Home"
+          asp-action="Index"
+          >Home
+        </a>
+        <a
+          class="nav-link text-dark"
+          asp-area=""
+          asp-controller="Home"
+          asp-action="News"
+          >News
+        </a>
+        <a
+          class="nav-link text-dark"
+          asp-area=""
+          asp-controller="Home"
+          asp-action="Reviews"
+          >Reviews
+        </a>
+        <a
+          class="nav-link text-dark"
+          href="https://github.com/troubleShooter239/MVC-Web-App"
+          >About Us
+        </a>
+      </div>
+      <div class="nav-links-wrapper">
+        <img src="~/Images/Cart.svg" alt="Cart Image" class="icon" />
+        <a
+          class="nav-link text-dark border-none"
+          href
+          @* asp-area=""
+          asp-controller="Cart"
+          asp-action="" *@
+          >Cart
+        </a>
+      </div>
+    </div>
+    <div class="container">
+      <main role="main" class="pb-3">@RenderBody()</main>
+    </div>
+    <footer>
+      <div class="main-footer">
+        <nav class="footer-nav site-navigation">
+          <a href="" class="footer-nav-link nav-link">Corporate ethics</a>
+          <a href="" class="footer-nav-link nav-link">FAQ</a>
+          <a href="" class="footer-nav-link nav-link">Information for guests</a>
+          <a href="" class="footer-nav-link nav-link">Contacts</a>
+        </nav>
+        <div class="contacts-links site-navigation">
+          <span class="contact-text contact-item">Social: </span>
+          <div class="contact-item">
+            <a href="https://www.instagram.com/yumyumnow13/">
+              <img
+                src="~/Images/InstLogo.svg"
+                alt="Instagram logo"
+                class="icon contact-icon"
+              />
+            </a>
+          </div>
+          <div class="contact-item">
+            <a href="https://www.tiktok.com/">
+              <img
+                src="~/Images/TikTokLogo.svg"
+                alt="TikTok logo"
+                class="icon contact-icon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="copyrighting-text-wrapper">
+        <a
+          class="copyrighting-link"
+          asp-area=""
+          asp-controller="Home"
+          asp-action="TermsUse"
+          >Terms of use
+        </a>
+        <div class="copyrighting-text">
+          <p class="copyrighting-text">
+            Copyright PopokBuisness © 2023. All rights reserved.
+          </p>
+          <p class="copyrighting-text">Support: YumYumNow@hotmail.com</p>
+        </div>
+        <a
+          class="copyrighting-link"
+          asp-area=""
+          asp-controller="Home"
+          asp-action="PrivacyPolicy"
+          >Privacy policy
+        </a>
+      </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+  </body>
 </html>

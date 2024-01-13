@@ -1,0 +1,36 @@
+@{
+  ViewData["Title"] = "Forgot"; Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="~/css/site.css" />
+  <link rel="stylesheet" href="~/css/news.css" />
+  <link rel="stylesheet" href="~/css/Authentication.css" asp-append-version="true" />
+  <link rel="icon" type="image/svg+xml" href="~/Images/Logo.svg" />
+</head>
+
+<body>
+  <div class="background-panel">
+    <div class="reset-logo">
+      <partial name="../Shared/Components/_Logo.cshtml" />
+    </div>
+
+    <div class="login-container">
+      <div class="form-group">
+        <label class="label-text" for="email" id="email-label">Phone number or email:
+        </label>
+        <div class="email-input-container">
+          <input type="text" id="email" name="email" required minlength="10" maxlength="30" class="custom-input" />
+          <span id="email-error" class="error-message"></span>
+        </div>
+      </div>
+
+      <button class="custom-button">Send code</button>
+    </div>
+  </div>
+  <script src="~/js/Authentication.js?v=@DateTime.Now.Ticks"></script>
+</body>
+
+</html>

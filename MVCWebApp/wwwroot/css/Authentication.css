@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Zen+Maru+Gothic:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Zen+Maru+Gothic:wght@300;400&display=swap");
+
+/* temporary styles for (temporary) login button */
+body {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color: #101820;
+}
+
+body::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("https://i.postimg.cc/KzjTWbv6/Chicken.jpg");
+	background-size: cover;
+	filter: blur(5px);
+	z-index: -1;
+}
+
+.nav-link {
+	display: inline;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	display: flex; /* to positioning internal content */
+	justify-content: center;
+	align-items: stretch;
+}
+.container2 {
+	background-color: hsl(0, 0%, 100%);
+	display: flex;
+	justify-content: center;
+}
+.background-panel,
+.background-register-panel {
+	padding: 25px 0;
+	width: 450px;
+	height: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 50px;
+	background-color: #dbd1d193;
+}
+
+.background-register-panel {
+	height: 650px;
+}
+
+.login-logo {
+	height: 40%;
+}
+
+.register-logo {
+	height: 17%;
+}
+
+.reset-logo {
+	height: 45%;
+	font-size: 28px;
+}
+
+.logo {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.background-image {
+	height: 60%;
+}
+
+.company-text {
+	margin-bottom: 25px;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-family: "Lemon", serif;
+	font-size: 20px;
+	color: #101820;
+}
+
+.login-container,
+.login-register-container {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+	height: 40%;
+}
+
+.login-register-container {
+	height: 70%;
+}
+
+.custom-button {
+	height: 38px;
+	margin: 15px 0;
+	font-weight: 800;
+	line-height: 35px;
+	cursor: pointer;
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	border-radius: 25px;
+	width: 360px;
+	font-size: 16px;
+	background-color: #ffa300;
+	font-family: "Zen Maru Gothic", serif;
+	transition: 0.2s;
+}
+.custom-button:hover {
+	background-color: #101820;
+	border: 1px solid white;
+	box-shadow: 0 0 10px rgb(255, 255, 255);
+	color: #fff;
+	transition: 0.2s;
+}
+
+.error-message {
+	font-size: 16px;
+}
+
+.label-text {
+	font-size: 16px;
+	margin-left: 1vw;
+}
+
+.registration-text {
+	font-size: 16px;
+	color: #48539c;
+}
+
+.custom-input {
+	box-sizing: border-box;
+	margin: 10px 0;
+	padding: 0 15px;
+	height: 38px;
+	width: 360px;
+	/* border: 0.5px solid #101820; */
+	border: none;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background-color: #ffa300;
+	border-radius: 25px;
+	transition: 0.5s;
+}
+
+.custom-input:focus {
+	background: rgb(255, 192, 67);
+	border: none;
+	outline-color: white;
+	outline-style: solid;
+	outline-width: 1px;
+	transition: 0.5s;
+}
+.forgot-password-text {
+	font-size: 16px;
+	color: #48539c;
+	font-family: "Open Sans", sans-serif;
+}
+.validate-panel {
+	width: 360px;
+	height: 100px;
+	display: none;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-evenly;
+	border-radius: 10px;
+	background-color: #6d6868c5;
+}
+
+.back-btn {
+	position: relative;
+	top: 0;
+	left: 0;
+}
+/* 
+  Adaptive for devices with max-width 500px 
+  rewrite properties
+*/
+@media (max-width: 500px) {
+	.background-panel {
+		width: 250px;
+		height: 400px;
+		border-radius: 40px;
+	}
+	.validate-panel {
+		width: 200px;
+		height: 50px;
+	}
+
+	.background-image {
+		height: 80px;
+	}
+
+	.custom-input {
+		width: 200px;
+	}
+
+	.company-text {
+		font-size: 20px;
+	}
+
+	.label-text {
+		font-size: 12px;
+		margin-left: 1vw;
+	}
+
+	.custom-button {
+		font-size: 12px;
+		width: 200px;
+	}
+
+	.registration-text {
+		font-size: 12px;
+	}
+	.forgot-password-text {
+		font-size: 12px;
+	}
+	.error-message {
+		font-size: 9px;
+	}
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 1300px) {
+}

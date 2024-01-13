@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Quicksand:wght@800&family=Zen+Maru+Gothic:wght@800;400&display=swap');
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    box-sizing: border-box;
+    height: 100%;
+  }
+  
+  .left-panel {
+    width: 263px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #FFA500;
+    height: 100%;
+    box-shadow: 0 0 5px black;
+    z-index: 1;
+  }
+  
+  .tabs {
+    display: flex;
+    width: 100%;
+    height: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+  }
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3dcb0;
+  }
+  .left-panel {
+    position: relative; /* Add position relative to the left-panel */
+  }
+  
+  .logout-container {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logout-button {
+    padding: 10px;
+    background-color: #FFA500;
+    color: #101820;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+    border: 2px solid #101820;
+  }
+  
+  .logout-button:hover {
+    background-color: #101820;
+    color: #FFA500;
+  }
+  .label-my-adress
+  {
+    font-size: 50px;
+    margin-bottom: 100px;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+
+  .button-panel {
+    display: flex;
+    width: 100%;
+    max-width: 313px;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    flex-shrink: 0;
+    border: 2px solid #101820;
+    background-color: #FFA500;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 800;
+  }
+  .address-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px; /* Увеличил пространство между элементами */
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-field {
+  width: 300px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid #101820;
+  background-color: #FFA500;
+  position: relative;
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800px;
+}
+
+.input-field input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800px;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #101820;
+  font-size: 20px;
+  pointer-events: none;
+  transition: top 0.3s, font-size 0.3s;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 800px;
+}
+
+.input-field label.filled {
+  top: 10px;
+  font-size: 30px;
+}
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label,
+.input-field input.filled + label {
+  top: -30px;
+  font-size: 30px;
+}
+
+
+.save-button
+{
+  margin-top: 100px;
+  background-color: #FFA500;
+  border: 2px solid #101820;
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand' sans-serif;
+  font-weight: 800px;
+  font-size: 25px;
+
+}
+.button-panel.active,
+.button-panel:hover {
+  background-color: #101820;
+  color: #FFA500;
+}
+.save-button:hover
+{
+  background-color: #101820;
+  color: #FFA500;
+}
+
+  @media screen and (max-width: 768px) {
+    .left-panel {
+      max-width: 30%;
+    }
+  
+    .tabs,
+    .button-panel {
+      max-width: 300px;
+    }
+  }

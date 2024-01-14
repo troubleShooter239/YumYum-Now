@@ -55,7 +55,7 @@ Have feedback or suggestions? We'd love to hear from you! Please open an [issue]
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
 
 ---
 

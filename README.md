@@ -1,5 +1,7 @@
 # YumYum Now
 
+![Logo](./MVCWebApp/wwwroot/Images/Logo.svg)
+
 Welcome to YumYum Now – your personal gateway to delicious adventures delivered right to your door! Order exquisite dishes from the best local restaurants, and our experienced couriers will bring them straight to you.
 
 ## Getting Started
